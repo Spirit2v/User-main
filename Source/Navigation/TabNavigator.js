@@ -94,16 +94,17 @@ const homeHeaderOptions = ({navigation}) => ({
     );
   },
   headerLeft: () => (
-    <View
-      style={{
-        height: 36,
-        width: 36,
-        borderWidth: 1,
-        borderColor: Colors.yellow,
-        borderRadius: 18,
-        marginLeft: 10,
-        borderStyle: 'dashed',
-      }}></View>
+    <View>
+      {/* // style={{
+      //   height: 36,
+      //   width: 36,
+      //   borderWidth: 1,
+      //   borderColor: Colors.yellow,
+      //   borderRadius: 18,
+      //   marginLeft: 10,
+      //   borderStyle: 'dashed',
+      //}}> */}
+      </View>
   ),
 });
 
@@ -178,11 +179,7 @@ function Home() {
         component={NotificationTab}
         options={{headerShown: false}}
       />
-       <HomeStack.Screen
-        name="BrickEstimation"
-        component={BrickEstimation}
-        options={{headerShown: false}}
-      />
+
     </HomeStack.Navigator>
   );
 }
@@ -193,6 +190,11 @@ function Dashbard() {
       initialRouteName="Dashboard"
       screenOptions={dashbardHeaderOptions}>
       <DashboardStack.Screen name="Dashboard" component={DashboardScreen} />
+      <HomeStack.Screen
+        name="BrickEstimation"
+        component={BrickEstimation}
+        options={{headerShown: false}}
+      />
       <DashboardStack.Screen name="PitchLead" component={PitchLeadScreen} />
       <DashboardStack.Screen
         name="NewLeads"
