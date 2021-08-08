@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 
 export default class LeadComponent extends Component{
     render(){
@@ -28,9 +28,13 @@ export default class LeadComponent extends Component{
 
                
                 <View style={styles.Box}>
-                
-                    <Text style={styles.status}>Completed</Text>
+                <TouchableOpacity
+                onPress={()=>this.props.navigation.navigate('NotificationTab')}
+                >
+                <Text style={styles.status}>Completed</Text>
                     <Text style={styles.label}>Leads</Text>
+                </TouchableOpacity>
+                  
                 </View>
                 <View style={styles.Box}>
                    

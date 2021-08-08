@@ -45,7 +45,9 @@ export default class HomeScreen extends Component {
             <View style={styles.contentContainer}>
               <UnitConvertorComponent />
               <RecentConversionComponent />
-              <LeadComponent />
+              <LeadComponent
+              navigation={this.props.navigation}
+              />
             </View>
           </>
         }

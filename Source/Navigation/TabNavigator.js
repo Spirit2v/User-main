@@ -58,6 +58,7 @@ import Tiling from '../Screens/dashboard/services/chemical/Tiling';
 import DashboardDash from '../Screens/dashboard/DashboardDash';
 import DashedIcon from '../Components/DashedIcon';
 import Site_AddressBook from '../Screens/profile/Site_AddressBook';
+import BrickEstimation from '../Screens/home/estimation/BrickEstimation';
 const Tab = createBottomTabNavigator();
 
 const HomeStack = createStackNavigator();
@@ -175,6 +176,11 @@ function Home() {
       <HomeStack.Screen
         name="NotificationTab"
         component={NotificationTab}
+        options={{headerShown: false}}
+      />
+       <HomeStack.Screen
+        name="BrickEstimation"
+        component={BrickEstimation}
         options={{headerShown: false}}
       />
     </HomeStack.Navigator>
