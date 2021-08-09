@@ -12,22 +12,22 @@ import axios from 'axios';
 const Profile_Details = ({navigation, percentage = 0}) => {
 
 const submitx =()=>{
-  
-  axios.get(
-"http://localhost:7000/user/users"
-  )
-  .then((res)=>{
-    console.log
-  })
+  setFormData({ first_name:name , phone_no:phone, email:email , whatsapp_no:wpp})
+   axios.post(`http://192.168.156.104:7000/user/updateUser/67`,formData)
+    .then(response=> {
+       console.log(response)
+       alert('Saved')
+    })
 
-}
+
+  }
 const [formData,setFormData]=useState('')
 
  const [name, setname] = useState('')
- const [Email, setEmail] = useState('')
- const [Phone, setPhone] = useState('')
-const [Whatsapp, setWhatsapp] = useState('')
-const [Password, setPassword] = useState('')
+ const [email, setEmail] = useState('')
+ const [phone, setPhone] = useState('')
+const [wpp, setWhatsapp] = useState('')
+const [password, setPassword] = useState('')
   return (
 
 <ScrollView>
