@@ -28,7 +28,7 @@ const Company_Address = ({navigation, route}) => {
         alert('Company Address Saved');
       });
   };
-
+const [formData, setFormData] = useState('')
   const [userId, setUserId] = useState('');
   const [building, setBuilding] = useState('');
   const [area, setArea] = useState('');
