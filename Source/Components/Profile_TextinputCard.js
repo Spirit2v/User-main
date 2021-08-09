@@ -3,10 +3,12 @@ import {TextInput, Text, StyleSheet} from 'react-native';
 import Colors from '../Utils/Colors';
 import TextStyles from '../Assets/Styles/TextStyles';
 
-const Profile_TextinputCard = ({placeholder}) => {
+const Profile_TextinputCard = ({placeholder,onChangeText}) => {
   return (
     <TextInput
+    onChangeText={onChangeText}
       placeholder={placeholder}
+      
       placeholderTextColor={Colors.white}
       style={styles.Box}></TextInput>
   );

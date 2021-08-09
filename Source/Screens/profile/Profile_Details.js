@@ -12,6 +12,7 @@ import axios from 'axios';
 const Profile_Details = ({navigation, percentage = 0}) => {
 
 const submitx =()=>{
+  
   axios.get(
 "http://localhost:7000/user/users"
   )
@@ -20,7 +21,7 @@ const submitx =()=>{
   })
 
 }
-
+const [formData,setFormData]=useState('')
 
  const [name, setname] = useState('')
  const [Email, setEmail] = useState('')
@@ -46,12 +47,20 @@ const [Password, setPassword] = useState('')
         style={{marginVertical: 10}}
       />
       <Profile_TextinputCard placeholder="Name" 
-      
+      onChangeText={text => setname(text)}
       />
-      <Profile_TextinputCard placeholder="Email ID" />
-      <Profile_TextinputCard placeholder="Phone No." />
-      <Profile_TextinputCard placeholder="Whatsapp No." />
-      <Profile_TextinputCard placeholder="Password" />
+     
+      <Profile_TextinputCard placeholder="Email ID"
+        onChangeText={text => setEmail(text)}
+      />
+      <Profile_TextinputCard placeholder="Phone No."
+        onChangeText={text => setPhone(text)}
+      />
+      <Profile_TextinputCard 
+        onChangeText={text => setWhatsapp(text)}
+      placeholder="Whatsapp No." />
+      <Profile_TextinputCard placeholder="Password"
+        onChangeText={text => setPassword(text)} />
       <View
         style={{
           flexDirection: 'row',
