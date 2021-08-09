@@ -30,7 +30,7 @@ import { useNavigation } from '@react-navigation/native';
 export default class HomeScreen extends Component {
   render() {
     // let {dropDownVisible} = this.state;
- 
+
     let array = new Array(1, 2, 3, 4, 5, 6, 7);
     return (
       <>
@@ -48,8 +48,9 @@ export default class HomeScreen extends Component {
               <UnitConvertorComponent />
               <RecentConversionComponent />
               <LeadComponent
-        
+      navigation={this.props.navigation}
               />
+           
             </View>
           </>
         }

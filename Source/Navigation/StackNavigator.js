@@ -28,6 +28,7 @@ import ResetPasswordScreen from '../Screens/signin/ResetPasswordScreen';
 import Cart from '../Screens/Cart';
 import CartSecond from '../Screens/CartSecond';
 import Request1 from '../Screens/dashboard/services/Request1';
+import BrickEstimation from '../Screens/home/estimation/BrickEstimation';
 const Stack = createStackNavigator();
 
 const StackNavigator = () => {
@@ -48,6 +49,7 @@ const StackNavigator = () => {
       <Stack.Screen name="Header" component={Header_Component} />
       <Stack.Screen name="NotificationTab" component={NotificationTab} />
       <Stack.Screen name="Cart" component={Cart} />
+      <Stack.Screen name="BrickEstimation" component={BrickEstimation} />
       <Stack.Screen name="CartSecond" component={CartSecond} />
       <Stack.Screen name="LandingScreen" component={LandingScreen} />
       <Stack.Screen name="Site_AddressBook" component={Site_AddressBook} />

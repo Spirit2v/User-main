@@ -4,8 +4,10 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 
 export default class LeadComponent extends Component {
   render() {
+
     return (
       <>
+     
         <Text
           style={{
             color: 'white',
@@ -18,15 +20,20 @@ export default class LeadComponent extends Component {
 
         <View style={styles.container}>
           <View style={styles.Box1}>
-            <TouchableOpacity>
+            <TouchableOpacity
+         
+            >
               <Text style={styles.status}>CPWD</Text>
               <Text style={styles.label}>Mannual</Text>
             </TouchableOpacity>
           </View>
           <View style={styles.Box1}>
+            <TouchableOpacity
+               onPress={()=>this.props.navigation.navigate('BrickEstimation')}
+            >
             <Text style={styles.status}>Brick</Text>
             <Text style={styles.label}>Estimation</Text>
-          </View>
+            </TouchableOpacity></View>
           <View style={styles.Box1}>
             <Text style={styles.status}>Painting </Text>
             <Text style={styles.label}>Estimation</Text>
