@@ -20,10 +20,15 @@ const Header_Component = ({Heading}) => {
         />
       </TouchableOpacity>
       <Text style={styles.Header}>{Heading}</Text>
-      <View style={{
+
+
+        <TouchableOpacity
+        onPress={()=>navigation.navigate('Cart')}
+        >
+        <View style={{
 marginHorizontal:10
-      }}      >
-      <Ionicons name="cart-outline" size={22} color='#ffb600' /></View>
+      }}      ><Ionicons name="cart-outline" size={22} color='#ffb600' /></View>
+      </TouchableOpacity>
       <View style={styles.NotificationContainer}>
       
         <TouchableHighlight

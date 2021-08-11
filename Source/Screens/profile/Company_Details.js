@@ -19,7 +19,7 @@ const Company_Details = ({navigation, route}) => {
       company_whatsapp_no: wpp,
     });
     axios
-      .post(`http://192.168.156.104:7000/user/updateUser/67`, formData)
+      .post(`http://192.168.188.104:7000/user/updateUser/68`, formData)
       .then(response => {
         console.log(response);
         alert('Company Details Saved');

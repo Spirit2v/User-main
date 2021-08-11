@@ -13,7 +13,7 @@ const Profile_Details = ({navigation, percentage = 0}) => {
 
 const submitx =()=>{
   setFormData({ first_name:name , phone_no:phone, email:email , whatsapp_no:wpp})
-   axios.post(`http://192.168.156.104:7000/user/updateUser/67`,formData)
+   axios.post(`http://192.168.254.103:7000/user/updateUser/67`,formData)
     .then(response=> {
        console.log(response)
        alert('Saved')

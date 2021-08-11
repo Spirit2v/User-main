@@ -75,6 +75,7 @@ const homeHeaderOptions = ({navigation}) => ({
       <View
         style={{flexDirection: 'row', marginRight: 20, alignItems: 'center'}}>
         <TouchableOpacity
+        onPress={()=>navigation.navigate('Cart')}
           style={{
             flexDirection: 'row',
             marginHorizontal: 20,
@@ -121,6 +122,7 @@ const dashbardHeaderOptions = ({navigation}) => ({
     
     
     <TouchableOpacity
+    onPress={()=>navigation.navigate('Cart')}
     style={{marginHorizontal:32}}
     >
     <Ionicons name="cart-outline" size={24} color='#ffb600' />
@@ -149,7 +151,8 @@ const profileHeaderOptions = ({navigation}) => ({
       <View
       style={{flexDirection:'row'}}
       >
-      <TouchableOpacity>
+      <TouchableOpacity
+         onPress={()=>navigation.navigate('Cart')}>
       <Ionicons name="cart-outline" size={22} color='#ffb600' />
       </TouchableOpacity>
 
