@@ -5,15 +5,25 @@ import {useColorModeValue} from 'native-base';
 import {borderColor} from 'styled-system';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
-export default function Checkbox({text, value}) {
+export default function TestCheckbox({text, value,Callbackfunctio}) {
+  
+
   const [checked, onChange] = useState(false);
 const [Clay, setClay] = useState('')
   function onCheckmarkPress() {
     onChange(!checked);
-    {!checked ?
-      setClay('Clay')
-:
-setClay('')    
+    {!checked ? (
+ 
+      Callbackfunctio(value)
+
+    
+      
+      )
+: (
+  
+  Callbackfunctio('')
+)
+
     }
 
   }
@@ -27,7 +37,9 @@ setClay('')
         
         }
       </TouchableOpacity>
-  
+      <Text
+      style={{color:'white'}}
+      >{Clay}</Text>
     </View>
   );
 }

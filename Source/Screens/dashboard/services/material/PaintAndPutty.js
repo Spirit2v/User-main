@@ -25,10 +25,10 @@ export default function PaintAndPutty({navigation}) {
    placeholder="Select Types"
    />
 
-<DropdownCheckbox 
+{/* <DropdownCheckbox 
    Types={Sizes}
    placeholder="Select Sizes"
-   />
+   /> */}
         <View  style={{
             marginTop: 20,
             justifyContent: 'center',
