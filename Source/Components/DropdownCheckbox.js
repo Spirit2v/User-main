@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 //import all the components we are going to use
 import {
   SafeAreaView,
@@ -33,6 +33,20 @@ import {flexDirection} from 'styled-system';
 import ArrowUpward from './ArrowUpward';
 
 const DropdownCheckbox = ({Types, placeholder}) => {
+
+
+  const [checked, onChange] = useState(false);
+  const [Clay, setClay] = useState('')
+    function onCheckmarkPress() {
+      onChange(!checked);
+      {!checked ?
+        setClay('Clay')
+  :
+  setClay('')    
+      }
+  
+    }
+    const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
   //   const Types = [
   //     '   Select All         ',
   //     'Cementitious repair motars            ',
@@ -46,14 +60,30 @@ const DropdownCheckbox = ({Types, placeholder}) => {
   const Data = Types;
   const [shouldShow, setShouldShow] = useState(true);
   const renderItem = ({item}) => (
+
     <View style={[styles.secondbox1]}>
-      <Checkbox1 />
+
+
+      <View style={styles.cont}>
+      <TouchableOpacity
+        style={[styles.checkboxBase, checked && styles.checkboxChecked]}
+        onPress={onCheckmarkPress}>
+        {checked && <Ionicons name="checkmark" size={24} color="#00FF00" />
+        
+        }
+      </TouchableOpacity>
+  
+    </View>
+
+
+
       <View style={{width: 12}}></View>
       <Text style={{color: 'white'}}>{item}</Text>
     </View>
   );
-  return (
-    <SafeAreaView>
+  return (     
+
+
       <View>
         {shouldShow ? (
           <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
@@ -95,7 +125,9 @@ const DropdownCheckbox = ({Types, placeholder}) => {
           </>
         )}
       </View>
-    </SafeAreaView>
+      
+
+
   );
 };
 
@@ -192,6 +224,44 @@ const styles = StyleSheet.create({
     elevation: 8,
     marginBottom: 20,
   },
+
+  checkboxBase: {
+    width: 24,
+    height: 24,
+    justifyContent: 'center',
+    alignItems: 'center',
+    borderRadius: 4,
+    borderWidth: 0,
+
+    backgroundColor: 'transparent',
+  },
+
+  checkboxChecked: {
+    backgroundColor: 'transparent',
+  },
+
+  cont: {
+    shadowColor: 'grey',
+
+    shadowOffset: {
+      width: 0,
+      height: 3,
+    },
+    shadowOpacity: 0.3,
+    shadowRadius: 8.65,
+    marginBottom: 17,
+    elevation: 8,
+    justifyContent: 'center',
+
+    height: 20,
+    borderRadius: 3,
+    width: 20,
+    borderColor: 'grey',
+    borderWidth: 1,
+  }
+
+
+
 });
 
 export default DropdownCheckbox;
