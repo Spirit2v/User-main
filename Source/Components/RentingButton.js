@@ -44,7 +44,13 @@ export default function RentingButton({text,h,Callbackfunctio, value}) {
      <TouchableOpacity
        style={[styles.checkboxBase, checked && styles.checkboxChecked]}
        onPress={onCheckmarkPress}>
-       {checked && <Ionicons name="checkmark" size={24} color="#00FF00" />
+       {checked && <View
+       style={{backgroundColor:'#ffb600',   width: 18,
+       height: 18,    justifyContent: 'center',
+       alignItems: 'center',}}
+       >
+
+       </View>
        
        }
      </TouchableOpacity>

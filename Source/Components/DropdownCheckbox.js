@@ -32,31 +32,25 @@ import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {flexDirection} from 'styled-system';
 import ArrowUpward from './ArrowUpward';
 
-const DropdownCheckbox = ({Types,placeholder}) => {
-//   const Types = [
-//     '   Select All         ',
-//     'Cementitious repair motars            ',
-//     '     Cementitious micro concrete       ',
-//     '    Epoxy resing based concrete        ',
-//     '  Epoxy resin based motars          ',
-//     '   Epoxy and PU injection grouts         ',
-//     '  Structural reinforcement protection          ',
-//     '     Fibre reinforced polymers       ',
-//   ];
-const Data = Types
+const DropdownCheckbox = ({Types, placeholder}) => {
+  //   const Types = [
+  //     '   Select All         ',
+  //     'Cementitious repair motars            ',
+  //     '     Cementitious micro concrete       ',
+  //     '    Epoxy resing based concrete        ',
+  //     '  Epoxy resin based motars          ',
+  //     '   Epoxy and PU injection grouts         ',
+  //     '  Structural reinforcement protection          ',
+  //     '     Fibre reinforced polymers       ',
+  //   ];
+  const Data = Types;
   const [shouldShow, setShouldShow] = useState(true);
   const renderItem = ({item}) => (
-  
-      <View style={[styles.secondbox1]}>
-        <Checkbox1 />
-        <View
-        style={{width:12}}
-        >
-
-        </View>
-        <Text style={{color: 'white'}}>{item}</Text>
-      </View>
-   
+    <View style={[styles.secondbox1]}>
+      <Checkbox1 />
+      <View style={{width: 12}}></View>
+      <Text style={{color: 'white'}}>{item}</Text>
+    </View>
   );
   return (
     <SafeAreaView>
@@ -76,16 +70,28 @@ const Data = Types
                 <ArrowUpward />
               </View>
             </TouchableOpacity>
-            <View style={{
-                borderRadius:12,height:20,backgroundColor:'black',marginBottom:-10,marginTop:0.6}}></View>
+            <View
+              style={{
+                borderRadius: 12,
+                height: 20,
+                backgroundColor: 'black',
+                marginBottom: -10,
+                marginTop: 0.6,
+              }}></View>
             <FlatList
-            nestedScrollEnabled={true}
+              nestedScrollEnabled={true}
               data={Data}
               renderItem={renderItem}
               keyExtractor={item => item.index}
             />
-            <View style={{
-                borderRadius:12,height:20,backgroundColor:'black',marginBottom:10,marginTop:-10}}></View>
+            <View
+              style={{
+                borderRadius: 12,
+                height: 20,
+                backgroundColor: 'black',
+                marginBottom: 10,
+                marginTop: -10,
+              }}></View>
           </>
         )}
       </View>
@@ -108,7 +114,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 
     justifyContent: 'flex-start',
-borderRadius:2,
+    borderRadius: 2,
     padding: 10,
   },
   secondbox: {
@@ -129,7 +135,6 @@ borderRadius:2,
     shadowRadius: 4.65,
 
     elevation: 8,
-  
   },
 
   firstbox: {
