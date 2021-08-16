@@ -36,8 +36,9 @@ export default function Cement({navigation}) {
   const [selectedbrand, setSelectedBrand] = useState('');
   const [selectedgrade, setSelectedGrade] = useState('');
   return (
-    <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 8, paddingHorizontal: 7}}>
+ <ScrollView>
+              <View style={Styles.ProfileDetails_container}>
+      <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
         <DropdownCheckbox Types={Brand} placeholder="Select brand" />
         <DropdownCheckbox Types={Grades} placeholder="Select Grades" />
 
@@ -66,8 +67,10 @@ export default function Cement({navigation}) {
             />
           </TouchableOpacity>
         </View>
+   
       </View>
-    </View>
+   
+  </ScrollView>
   );
 }
 const styles = StyleSheet.create({

@@ -32,7 +32,7 @@ import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {flexDirection} from 'styled-system';
 import ArrowUpward from './ArrowUpward';
 
-const DropdownCheckbox = ({Types, placeholder}) => {
+const DropdownCheckbox = ({Types, placeholder,setFunction}) => {
 
 
   const [checked, onChange] = useState(false);
