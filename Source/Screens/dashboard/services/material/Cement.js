@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import RNPickerSelect from 'react-native-picker-select';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
 import Button from '../../../../Components/Button';
@@ -12,6 +13,7 @@ import AddtoCard from '../../../../Components/AddtoCard';
 import {ScrollView} from 'react-native-gesture-handler';
 export default function Cement({navigation}) {
   const [Switch, setSwitch] = useState(true);
+  const placeholder="Select Grad"
   const Brand = [
     'Select All',
     'Ultratech Cement',
@@ -36,12 +38,51 @@ export default function Cement({navigation}) {
   const [selectedbrand, setSelectedBrand] = useState('');
   const [selectedgrade, setSelectedGrade] = useState('');
   return (
- <ScrollView>
-              <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
+    <ScrollView>
+      <View style={Styles.ProfileDetails_container}>
+        <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
         <DropdownCheckbox Types={Brand} placeholder="Select brand" />
         <DropdownCheckbox Types={Grades} placeholder="Select Grades" />
+        <RNPickerSelect
+   placeholder={{
+    label: 'Select brand',
+    value: null,
+    color: 'White',
+  }}
+  style={{
+placeholder:{
+  color:"white"
+},
+inputAndroid:{
+  borderRadius: 10,
+  padding: 16,
+  width: '100%',
+  height: 53,
+  backgroundColor:'black',
+  flexDirection: 'row',
+  justifyContent: 'space-between',
+  alignItems: 'stretch',
+  shadowColor: 'white',
+  shadowOffset: {
+    width: 0,
+    height: 4,
+  },
+  shadowOpacity: 0.3,
+  shadowRadius: 4.65,
 
+  elevation: 8,
+}
+
+  }}
+          onValueChange={value => console.log(value)}
+          useNativeAndroidPickerStyle={false}
+        
+          items={[
+            {label: 'Football', value: 'football'},
+            {label: 'Baseball', value: 'baseball'},
+            {label: 'Hockey', value: 'hockey'},
+          ]}
+        />
         <View
           style={{
             marginTop: 20,
@@ -67,10 +108,8 @@ export default function Cement({navigation}) {
             />
           </TouchableOpacity>
         </View>
-   
       </View>
-   
-  </ScrollView>
+    </ScrollView>
   );
 }
 const styles = StyleSheet.create({
