@@ -48,6 +48,7 @@ export default function Cement({navigation}) {
   const setFunctio = e => {
     setBrick(e);  setVisible(!Visible)
   };
+const [firstly, setFirstly] = useState('')
 
   return (
 
@@ -64,9 +65,9 @@ export default function Cement({navigation}) {
 
         <DropdownCheckbox Types={Grades} placeholder="Select Grades" />
 
-<Text>{Brick.title}</Text>
-
-
+<Text
+style={{color:'white'}}
+>{Brick}</Text>
 
         <View
           style={{
@@ -94,6 +95,11 @@ export default function Cement({navigation}) {
           </TouchableOpacity>
         </View>
       </View>
+      
+
+
+
+
     </ScrollView>
   );
 }

@@ -38,19 +38,22 @@ const DropdownCheckbox = ({Types, placeholder, setFunction}) => {
   const [checked, onChange] = useState(false);
   const [Clay, setClay] = useState('');
   const [title, setTitle] = useState('');
+  const [test, settest] = useState('')
+  const nol="";
 const work=(item)=>{
+
     setSelectedId('')
-      setFunction('suyash')
- 
-    setTitle('ger')
+      setFunction(nol)
+setTitle(item.title)
 
 }
   const onclick = item => {
     {item.id === selectedId ?
-   work(item)
+
+       work(item)
       :  setSelectedId(item.id)
-      // setFunction(item)
-      setTitle(item.title)
+      setFunction(item.title)
+setTitle(item.title)
     }
   
 
@@ -124,7 +127,6 @@ const work=(item)=>{
             }}></View>
         </>
       )}
-      <Text>{title}</Text>
     </View>
   );
 };
