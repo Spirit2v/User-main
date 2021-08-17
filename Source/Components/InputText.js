@@ -3,13 +3,14 @@ import {TextInput, Text, StyleSheet} from 'react-native';
 import Colors from '../Utils/Colors';
 import TextStyles from '../Assets/Styles/TextStyles';
 
-const InputText = ({placeholder,height,width}) => {
+const InputText = ({placeholder,height,width,onChangeText,keyboardType}) => {
   return (
     <TextInput
       placeholder={placeholder}
+      keyboardType={keyboardType}
       height={height}
       width={width}
-
+      onChangeText={onChangeText}
       placeholderTextColor={Colors.white}
       style={styles.Box}></TextInput>
   );
