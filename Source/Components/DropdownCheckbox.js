@@ -32,102 +32,100 @@ import {FlatList, ScrollView} from 'react-native-gesture-handler';
 import {flexDirection} from 'styled-system';
 import ArrowUpward from './ArrowUpward';
 
-const DropdownCheckbox = ({Types, placeholder,setFunction}) => {
-
-
+const DropdownCheckbox = ({Types, placeholder, setFunction}) => {
+  const [selectedId, setSelectedId] = useState(null);
+  const [value, setValue] = useState('');
   const [checked, onChange] = useState(false);
-  const [Clay, setClay] = useState('')
-    function onCheckmarkPress() {
-      onChange(!checked);
-      {!checked ?
-        setClay('Clay')
-  :
-  setClay('')    
-      }
-  
+  const [Clay, setClay] = useState('');
+  const [title, setTitle] = useState('');
+const work=(item)=>{
+    setSelectedId('')
+      setFunction('suyash')
+ 
+    setTitle('ger')
+
+}
+  const onclick = item => {
+    {item.id === selectedId ?
+   work(item)
+      :  setSelectedId(item.id)
+      // setFunction(item)
+      setTitle(item.title)
     }
-    const [toggleCheckBox, setToggleCheckBox] = React.useState(false);
-  //   const Types = [
-  //     '   Select All         ',
-  //     'Cementitious repair motars            ',
-  //     '     Cementitious micro concrete       ',
-  //     '    Epoxy resing based concrete        ',
-  //     '  Epoxy resin based motars          ',
-  //     '   Epoxy and PU injection grouts         ',
-  //     '  Structural reinforcement protection          ',
-  //     '     Fibre reinforced polymers       ',
-  //   ];
+  
+
+    // onChange(!checked);
+    //   {
+    //     !checked ?  setSelectedId(item.id):  setSelectedId('');
+    //   }
+  };
+
   const Data = Types;
   const [shouldShow, setShouldShow] = useState(true);
   const renderItem = ({item}) => (
-
     <View style={[styles.secondbox1]}>
-
-
       <View style={styles.cont}>
-      <TouchableOpacity
-        style={[styles.checkboxBase, checked && styles.checkboxChecked]}
-        onPress={onCheckmarkPress}>
-        {checked && <Ionicons name="checkmark" size={24} color="#00FF00" />
-        
-        }
-      </TouchableOpacity>
-  
-    </View>
-
-
+        <TouchableOpacity
+          style={[styles.checkboxBase, checked && styles.checkboxChecked]}
+          onPress={() => onclick(item)}>
+          {item.id === selectedId ? (
+            <Ionicons name="checkmark" size={24} color="#00FF00" />
+          ) : (
+            <View></View>
+          )}
+        </TouchableOpacity>
+      </View>
 
       <View style={{width: 12}}></View>
-      <Text style={{color: 'white'}}>{item}</Text>
+      <Text style={{color: 'white'}}>{item.title}</Text>
     </View>
   );
-  return (     
-
-
-      <View>
-        {shouldShow ? (
+  return (
+    <View>
+      {shouldShow ? (
+        <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
+          <View style={styles.firstbox}>
+            <Text style={{color: 'white'}}>{title ? title : placeholder}</Text>
+            <ArrowDownward />
+          </View>
+        </TouchableOpacity>
+      ) : (
+        <>
           <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
-            <View style={styles.firstbox}>
-              <Text style={{color: 'white'}}>{placeholder}</Text>
-              <ArrowDownward />
+            <View style={styles.secondbox}>
+              <Text style={{color: 'white'}}>
+                {title ? title : placeholder}
+              </Text>
+              <ArrowUpward />
             </View>
           </TouchableOpacity>
-        ) : (
-          <>
-            <TouchableOpacity onPress={() => setShouldShow(!shouldShow)}>
-              <View style={styles.secondbox}>
-                <Text style={{color: 'white'}}>{placeholder}</Text>
-                <ArrowUpward />
-              </View>
-            </TouchableOpacity>
-            <View
-              style={{
-                borderRadius: 12,
-                height: 20,
-                backgroundColor: 'black',
-                marginBottom: -10,
-                marginTop: 0.6,
-              }}></View>
-            <FlatList
-              nestedScrollEnabled={true}
-              data={Data}
-              renderItem={renderItem}
-              keyExtractor={item => item.index}
-            />
-            <View
-              style={{
-                borderRadius: 12,
-                height: 20,
-                backgroundColor: 'black',
-                marginBottom: 10,
-                marginTop: -10,
-              }}></View>
-          </>
-        )}
-      </View>
-      
-
-
+          <View
+            style={{
+              borderRadius: 12,
+              height: 20,
+              backgroundColor: 'black',
+              marginBottom: -10,
+              marginTop: 0.6,
+            }}></View>
+          <FlatList
+            nestedScrollEnabled={true}
+            data={Data}
+            renderItem={renderItem}
+            keyExtractor={item => item.id}
+            extraData={selectedId}
+          />
+          <View
+            style={{
+              borderRadius: 12,
+              height: 20,
+              backgroundColor: 'black',
+              marginBottom: 10,
+              marginTop: -10,
+            }}></View>
+        </>
+      )}
+      <Text>{title}</Text>
+    </View>
   );
 };
 
@@ -258,10 +256,7 @@ const styles = StyleSheet.create({
     width: 20,
     borderColor: 'grey',
     borderWidth: 1,
-  }
-
-
-
+  },
 });
 
 export default DropdownCheckbox;

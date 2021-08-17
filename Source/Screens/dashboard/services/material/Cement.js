@@ -11,21 +11,27 @@ import SignupCard from '../../../../Components/SignupCard';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import AddtoCard from '../../../../Components/AddtoCard';
 import {ScrollView} from 'react-native-gesture-handler';
+import {Picker} from '@react-native-picker/picker';
+import { backgroundColor } from 'styled-system';
+import SelectPicker from 'react-native-form-select-picker'; 
+
 export default function Cement({navigation}) {
+  let [language, setLanguage] = React.useState('');
+  const [ selectedValue, setSelectedValue] = React.useState('js');
   const [Switch, setSwitch] = useState(true);
-  const placeholder="Select Grad"
+  const placeholder = 'Select Grad';
   const Brand = [
-    'Select All',
-    'Ultratech Cement',
-    'Ambuja Cement Ltd',
-    'ACC Ltd',
-    'Shree Cement Ltd.',
-    'Dalmia Bharat Ltd',
-    'Birla Corporation Ltd',
-    'India Cement Ltd',
-    'The Ramco Cements Ltd',
-    'Orient Cement Ltd',
-    'Heidelberg Cement Ltd',
+  {id:'1',title: 'Select All'} ,
+  {id:'2',title: 'Ultratech Cement'} ,
+  {id:'3',title:  'Ambuja Cement Ltd'} ,
+  {id:'4',title: 'ACC Ltd'} ,
+  {id:'5',title: 'Shree Cement Ltd.'} ,
+  {id:'6',title:  'Dalmia Bharat Ltd'} ,
+  {id:'7',title: 'Birla Corporation Ltd'} ,
+  {id:'8',title: 'India Cement Ltd'} ,
+  {id:'9',title: 'Select All'} ,
+  {id:'10',title: 'Select All'} ,
+  {id:'11',title: 'Select All'} 
   ];
   const Grades = [
     'Select All',
@@ -34,55 +40,34 @@ export default function Cement({navigation}) {
     'PPC Cement',
     'White Cement',
   ];
+  const options = ["Apple", "Banana", "Orange"];
+  const [selected, setSelected] = useState();
+  const [Visible, setVisible] = useState(false)
+  const [Brick, setBrick] = useState('');
+  const [selectedLanguage, setSelectedLanguage] = useState();
+  const setFunctio = e => {
+    setBrick(e);  setVisible(!Visible)
+  };
 
-  const [selectedbrand, setSelectedBrand] = useState('');
-  const [selectedgrade, setSelectedGrade] = useState('');
   return (
+
+
+
     <ScrollView>
+
       <View style={Styles.ProfileDetails_container}>
         <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
-        <DropdownCheckbox Types={Brand} placeholder="Select brand" />
-        <DropdownCheckbox Types={Grades} placeholder="Select Grades" />
-        <RNPickerSelect
-   placeholder={{
-    label: 'Select brand',
-    value: null,
-    color: 'White',
-  }}
-  style={{
-placeholder:{
-  color:"white"
-},
-inputAndroid:{
-  borderRadius: 10,
-  padding: 16,
-  width: '100%',
-  height: 53,
-  backgroundColor:'black',
-  flexDirection: 'row',
-  justifyContent: 'space-between',
-  alignItems: 'stretch',
-  shadowColor: 'white',
-  shadowOffset: {
-    width: 0,
-    height: 4,
-  },
-  shadowOpacity: 0.3,
-  shadowRadius: 4.65,
-
-  elevation: 8,
-}
-
-  }}
-          onValueChange={value => console.log(value)}
-          useNativeAndroidPickerStyle={false}
+        <DropdownCheckbox Types={Brand} placeholder="Select brand"
         
-          items={[
-            {label: 'Football', value: 'football'},
-            {label: 'Baseball', value: 'baseball'},
-            {label: 'Hockey', value: 'hockey'},
-          ]}
+        setFunction={setFunctio}
         />
+
+        <DropdownCheckbox Types={Grades} placeholder="Select Grades" />
+
+<Text>{Brick.title}</Text>
+
+
+
         <View
           style={{
             marginTop: 20,
@@ -121,5 +106,26 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 5,
     justifyContent: 'center',
+  },
+});
+const pickerSelectStyles = StyleSheet.create({
+  inputAndroid: {
+    fontSize: 16,
+    paddingHorizontal: 10,
+    paddingVertical: 8,
+    borderWidth: 0.5,
+    borderColor: 'purple',
+    borderRadius: 8,
+    color: 'black',
+    paddingRight: 30, // to ensure the text is never behind the icon
+  },
+  iconContainer: {
+    top: 20,
+    right: 10,
+  },
+  placeholder: {
+    color: 'purple',
+    fontSize: 12,
+    fontWeight: 'bold',
   },
 });
