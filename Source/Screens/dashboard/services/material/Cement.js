@@ -12,107 +12,97 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import AddtoCard from '../../../../Components/AddtoCard';
 import {ScrollView} from 'react-native-gesture-handler';
 import {Picker} from '@react-native-picker/picker';
-import { backgroundColor } from 'styled-system';
-import SelectPicker from 'react-native-form-select-picker'; 
+import {backgroundColor} from 'styled-system';
+import SelectPicker from 'react-native-form-select-picker';
 import axios from 'axios';
 import InputText from '../../../../Components/InputText';
 export default function Cement({navigation}) {
   let [language, setLanguage] = React.useState('');
-  const [ selectedValue, setSelectedValue] = React.useState('js');
+  const [selectedValue, setSelectedValue] = React.useState('js');
   const [Switch, setSwitch] = useState(true);
   const placeholder = 'Select Grad';
   const Brand = [
-  {id:'1',title: 'Select All'} ,
-  {id:'2',title: 'Ultratech Cement'} ,
-  {id:'3',title:  'Ambuja Cement Ltd'} ,
-  {id:'4',title: 'ACC Ltd'} ,
-  {id:'5',title: 'Shree Cement Ltd.'} ,
-  {id:'6',title:  'Dalmia Bharat Ltd'} ,
-  {id:'7',title: 'Birla Corporation Ltd'} ,
-  {id:'8',title: 'India Cement Ltd'} ,
-
+    {id: '1', title: 'Select All'},
+    {id: '2', title: 'Ultratech Cement'},
+    {id: '3', title: 'Ambuja Cement Ltd'},
+    {id: '4', title: 'ACC Ltd'},
+    {id: '5', title: 'Shree Cement Ltd.'},
+    {id: '6', title: 'Dalmia Bharat Ltd'},
+    {id: '7', title: 'Birla Corporation Ltd'},
+    {id: '8', title: 'India Cement Ltd'},
   ];
   const Grades = [
+    {id: '1', title: 'Select All'},
+    {id: '2', title: 'OPC 43 Cement'},
+    {id: '3', title: 'OPC 53 Cement'},
+    {id: '4', title: 'PPC Cement'},
 
-    {id:'1',title:'Select All'} ,
-    {id:'2',title: 'OPC 43 Cement'} ,
-    {id:'3',title:  'OPC 53 Cement'} ,
-    {id:'4',title: 'PPC Cement'} ,
-
-    {id:'5',title:   'White Cement'} ,
-
-
-  
+    {id: '5', title: 'White Cement'},
   ];
-  const options = ["Apple", "Banana", "Orange"];
+  const options = ['Apple', 'Banana', 'Orange'];
   const [selected, setSelected] = useState();
-  const [Visible, setVisible] = useState(false)
+  const [Visible, setVisible] = useState(false);
   const [Brick, setBrick] = useState('');
-const [CementGrades, setCementGrades] = useState('')
+  const [CementGrades, setCementGrades] = useState('');
   const [selectedLanguage, setSelectedLanguage] = useState();
   const setFunctio = e => {
-    setBrick(e);  setVisible(!Visible)
+    setBrick(e);
+    setVisible(!Visible);
   };
-const [firstly, setFirstly] = useState('')
-const setFunctio2 = e => {
-  setCementGrades(e);  setVisible(!Visible)
-};
-const [quantity, setQuantity] = useState('')
-const [formDataB, setFormDataB] = useState('')
-const [formData,setFormData]=useState('')
-const submitx =()=>{
-  setFormData({ type:Brick , brand:CementGrades})
-   axios.post(`http://192.168.254.103:7000/user/updateUser/67`,formData)
-    .then(response=> {
-       console.log(response)
-       alert('Saved')
-    })
-
-
-  }
+  const [firstly, setFirstly] = useState('');
+  const setFunctio2 = e => {
+    setCementGrades(e);
+    setVisible(!Visible);
+  };
+  const [quantity, setQuantity] = useState('');
+  const [formDataB, setFormDataB] = useState('');
+  const [formData, setFormData] = useState('');
+  const [data, setData] = useState('')
+  const submitx = () => {
+  
+    setData({type: Brick, brand: CementGrades});
+    setFormData({data:data,type:"Cement",quantity:quantity})
+    axios
+      .post(`http://192.168.254.103:7000/product/add_to_cart/23`, formData)
+      .then(response => {
+        console.log(response);
+        alert('Saved');
+      });
+  };
   return (
-
-
-
     <ScrollView>
-
       <View style={Styles.ProfileDetails_container}>
         <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
-        <DropdownCheckbox Types={Brand} placeholder="Select brand"
-        
-        setFunction={setFunctio}
+        <DropdownCheckbox
+          Types={Brand}
+          placeholder="Select brand"
+          setFunction={setFunctio}
         />
 
-        <DropdownCheckbox Types={Grades} placeholder="Select Grades"
-        setFunction={setFunctio2}
+        <DropdownCheckbox
+          Types={Grades}
+          placeholder="Select Grades"
+          setFunction={setFunctio2}
         />
-{CementGrades ? (<View><InputText 
-      keyboardType="numeric"
-placeholder="Quantity of Cement"
-onChangeText={(text)=>setQuantity(text)}
-/></View>) : (
-  <View></View>
-)}
-<Text
-style={{color:'white'}}
->{Brick}</Text>
-
-<Text
-style={{color:'white'}}
->{CementGrades}</Text>
-
-
-<TouchableOpacity
-            onPress={() => {
-              navigation.navigate(submitx);
-            }}>
-            <Buttonq1
-           
-              title="submit"
-              hi={42}
-              wi={78}
+        {CementGrades ? (
+          <View>
+            <InputText
+              keyboardType="numeric"
+              placeholder="Quantity of Cement"
+              onChangeText={text => setQuantity(text)}
             />
-          </TouchableOpacity>
+          </View>
+        ) : (
+          <View></View>
+        )}
+        <Text style={{color: 'white'}}>{Brick}</Text>
+
+        <Text style={{color: 'white'}}>{CementGrades}</Text>
+        <Text style={{color: 'white'}}>{quantity}</Text>
+        <TouchableOpacity
+          onPress={submitx}>
+          <Buttonq1 title="submit" hi={42} wi={78} />
+        </TouchableOpacity>
 
         <View
           style={{
@@ -140,11 +130,6 @@ style={{color:'white'}}
           </TouchableOpacity>
         </View>
       </View>
-      
-
-
-
-
     </ScrollView>
   );
 }
