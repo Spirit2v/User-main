@@ -54,16 +54,16 @@ export default function Cement({navigation}) {
     setCementGrades(e);
     setVisible(!Visible);
   };
-  const [quantity, setQuantity] = useState('');
+  const [Quantity, setQuantity] = useState('');
   const [formDataB, setFormDataB] = useState('');
   const [formData, setFormData] = useState('');
-  const [data, setData] = useState('')
+  const [data, setData] = useState('');
   const submitx = () => {
-  
     setData({type: Brick, brand: CementGrades});
-    setFormData({data:data,type:"Cement",quantity:quantity})
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
     axios
-      .post(`http://192.168.254.103:7000/product/add_to_cart/23`, formData)
+      .post(`http://192.168.106.103:7000/product/add_to_cart/19`, 
+      formData)
       .then(response => {
         console.log(response);
         alert('Saved');
@@ -98,9 +98,9 @@ export default function Cement({navigation}) {
         <Text style={{color: 'white'}}>{Brick}</Text>
 
         <Text style={{color: 'white'}}>{CementGrades}</Text>
-        <Text style={{color: 'white'}}>{quantity}</Text>
-        <TouchableOpacity
-          onPress={submitx}>
+        <Text style={{color: 'white'}}>{Quantity}</Text>
+        <Text style={{color: 'white'}}>{formData.Quantity}</Text>
+        <TouchableOpacity onPress={submitx}>
           <Buttonq1 title="submit" hi={42} wi={78} />
         </TouchableOpacity>
 
