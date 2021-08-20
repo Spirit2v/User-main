@@ -54,6 +54,7 @@ export default function Cement({navigation}) {
     setCementGrades(e);
     setVisible(!Visible);
   };
+  global.formData;
   const [Quantity, setQuantity] = useState('');
   const [formDataB, setFormDataB] = useState('');
   const [formData, setFormData] = useState('');
@@ -61,11 +62,13 @@ export default function Cement({navigation}) {
   const submitx = () => {
     setData({type: Brick, brand: CementGrades});
     setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
     axios
-      .post(`http://192.168.106.103:7000/product/add_to_cart/19`, 
+      .post(`http://192.168.43.154:7000/product/add_to_cart/23`, 
       formData)
       .then(response => {
         console.log(response);
+        console.log(formData)
         alert('Saved');
       });
   };

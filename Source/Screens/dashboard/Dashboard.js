@@ -36,7 +36,8 @@ const Dashboard = ({navigation}) => {
           </TouchableOpacity>
           <TouchableOpacity
             onPress={() => {
-              navigation.navigate('Request');
+              // navigation.navigate('Request'); ->this is before
+              navigation.navigate('Leads');
             }}>
             <Dashboard_card Icon={settin} Title="Requests" />
           </TouchableOpacity>
