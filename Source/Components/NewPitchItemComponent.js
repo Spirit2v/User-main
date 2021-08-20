@@ -9,9 +9,9 @@ export default class NewPitchItemComponent extends Component {
     return (
       <View style={styles.container}>
         <View style={styles.column}>
-          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.name}>{item.type}</Text>
           <View style={styles.timeContainer}>
-            <Text style={styles.value1}>{item.timestamp}</Text>
+            <Text style={styles.value1}>{item.deliver_by}</Text>
           </View>
         </View>
         <View style={styles.column}>
@@ -24,7 +24,16 @@ export default class NewPitchItemComponent extends Component {
               navigation.navigate('NewLeads');
             }}
             style={item.isUrgent ? styles.urgent : styles.inDays}>
-            <Text style={styles.urgencyStatus}>{item.time}</Text>
+            <Text style={styles.urgencyStatus}>
+                
+               
+                {item.urgent==='1' ? (
+                <Text
+                
+                >Urgent</Text>
+            ):(<Text>Not Urgent</Text>)}
+            
+            </Text>
           </TouchableOpacity>
         </View>
         <View style={styles.arrowButtonContainer}>
