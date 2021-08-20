@@ -32,7 +32,7 @@ export default class LeadBottomComponent extends Component{
 
 const styles = StyleSheet.create({
     container: {
-        height: 56,
+        height: 50,
         backgroundColor: '#2D2D2D',
         flexDirection: 'row'
     },

@@ -18,7 +18,7 @@ function LeadsTab() {
         tabBarOptions={{
             style: {backgroundColor: 'transparent'},
             labelStyle: {color: 'white', textTransform: 'none', fontSize: 15},
-            indicatorStyle: {backgroundColor: Colors.yellow }
+            indicatorStyle: {backgroundColor: Colors.yellow}
         }}>
       <Tab.Screen 
         name="NewLeadsTab" 
@@ -41,8 +41,13 @@ export default class LeadsScreen extends Component{
         return (
             <View style={styles.container}>
                 <StatusBar backgroundColor={Colors.darkgrey}/>
-                <Header_Component Heading="Leads"/>
+                <Header_Component Heading="Request"/>
                 {LeadsTab()}
+                <View
+                style={{height:3}}
+                >
+
+                </View>
                 <LeadBottomComponent />
             </View>
         )

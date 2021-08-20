@@ -3,28 +3,31 @@ import {StyleSheet, View, Text, TouchableOpacity} from 'react-native';
 import Colors from '../Utils/Colors';
 import Arrow_button from './Arrow_button';
 
-export default class NewPitchItemComponent extends Component {
+export default class NewPitchItemComponent2 extends Component {
   render() {
     let {item, navigation} = this.props;
     return (
       <View style={styles.container}>
         <View style={styles.column}>
-          <Text style={styles.name}>{item.name}</Text>
+          <Text style={styles.label}>Prakash S</Text>
+          <Text style={styles.label1}>Company Name</Text>
+          <Text style={styles.label1}>{item.name}</Text>
           <View style={styles.timeContainer}>
-            <Text style={styles.value1}>{item.timestamp}</Text>
+            <Text style={styles.label1}>{item.timestamp}</Text>
           </View>
         </View>
+
         <View style={styles.column}>
           <View style={styles.row}>
-            <Text style={styles.value1}>Quantity: </Text>
-            <Text style={styles.value1}>{item.quantity}</Text>
+            <Text style={styles.label}>₹ 6,200 </Text>
+            <Text style={styles.label1}>Quantity:20</Text>
           </View>
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('NewLeads');
             }}
             style={item.isUrgent ? styles.urgent : styles.inDays}>
-            <Text style={styles.urgencyStatus}>{item.time}</Text>
+            <Text style={styles.urgencyStatus}>Accepted</Text>
           </TouchableOpacity>
         </View>
         <View style={styles.arrowButtonContainer}>
@@ -38,17 +41,19 @@ export default class NewPitchItemComponent extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    backgroundColor: 'black',
     borderWidth: 0.5,
 
     borderRadius: 10,
-    height: 90,
+    height: 120,
     flexDirection: 'row',
-    paddingVertical: 15,
-    paddingHorizontal: 10,
-    backgroundColor: 'black',
+    paddingVertical: 10,
+    paddingHorizontal: 6,
   },
   column: {
     flex: 1,
+    justifyContent:'space-between'
+    ,alignContent:'space-between',
     paddingHorizontal:13
   },
   name: {
@@ -62,20 +67,26 @@ const styles = StyleSheet.create({
   label: {
     color: Colors.white,
     fontWeight: 'bold',
+    marginVertical:4
+  },
+  label1: {
+    color: 'grey',
+    // fontWeight: 'bold',
+    marginVertical:1
   },
   value: {
     fontWeight: 'bold',
     color: Colors.white,
     fontSize: 14,
   },
-  value1: {
-    fontWeight: 'bold',
-    color: 'grey',
-    fontSize: 14,
-  },
   row: {
-    flexDirection: 'row',
-    alignItems: 'center',
+    flexDirection: 'column',
+    justifyContent:'space-between',
+    alignItems:'stretch',
+
+    
+    
+
   },
   urgent: {
     height: 26,
@@ -97,7 +108,7 @@ const styles = StyleSheet.create({
     width: 90,
     alignItems: 'center',
     justifyContent: 'center',
-    borderRadius: 15,
+    borderRadius: 14,
     marginTop: 'auto',
   },
   timeContainer: {
