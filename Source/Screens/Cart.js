@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useEffect} from 'react';
 import {View, Text, ScrollView, TouchableOpacity,StyleSheet,FlatList} from 'react-native';
 import {Header} from 'react-native/Libraries/NewAppScreen';
 import Buttonq from '../Components/Buttonq';
@@ -10,10 +10,17 @@ export default function Cart({navigation}) {
 
 
 
-
+  useEffect(() => {
+    fetch('http://192.168.206.103:7000/product/get_cart/58')
+      .then(response => response.json())
+      .then(json => setRdata(json.data))
+      .catch(error => console.error(error))
+      .then(console.log(Data));
+  }, []);
 
 
   const [selectedId, setSelectedId] = useState('')
+  const [Rdata,setRdata]= useState('')
   const [Data, setData] = useState([
     {
       id: '1',
@@ -110,8 +117,8 @@ export default function Cart({navigation}) {
         </Text>
 
       <Cart21 
-      Data={Data}
-      setData={setData}
+      Data={Rdata}
+      setData={setRdata}
       />
 
       </ScrollView>

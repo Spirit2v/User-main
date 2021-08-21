@@ -20,7 +20,7 @@ const deletebyId=(id)=>{
             borderRadius: 4,
           }}></View>
         <View>
-          <Text style={{color: 'white'}}>{item.title}</Text>
+          <Text style={{color: 'white'}}>{item.data}{item.type}</Text>
           <Text style={{color: 'grey'}}>Quantity:{item.quantity} bags</Text>
         </View>
         <View>
