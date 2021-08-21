@@ -39,7 +39,7 @@ const LEADS = [
 ];
 export default function NewLeadScreen({navigation}) {
   useEffect(() => {
-    fetch('http://192.168.206.103:7000/product/new_requests/12')
+    fetch('http://192.168.118.103:7000/product/new_requests/12')
       .then(response => response.json())
       .then(json => setData(json.data))
       .catch(error => console.error(error))

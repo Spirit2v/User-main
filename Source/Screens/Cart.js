@@ -11,7 +11,7 @@ export default function Cart({navigation}) {
 
 
   useEffect(() => {
-    fetch('http://192.168.206.103:7000/product/get_cart/58')
+    fetch('http://192.168.118.103:7000/product/get_cart/58')
       .then(response => response.json())
       .then(json => setRdata(json.data))
       .catch(error => console.error(error))
