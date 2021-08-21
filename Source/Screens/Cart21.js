@@ -10,7 +10,9 @@ const deletebyId=(id)=>{
 
 
   const renderItem = ({item}) => (
-    <View style={styles.box}>
+   
+
+   <View style={styles.box}>
       <View style={styles.border}>
         <View
           style={{
@@ -20,7 +22,7 @@ const deletebyId=(id)=>{
             borderRadius: 4,
           }}></View>
         <View>
-          <Text style={{color: 'white'}}>{item.data}{item.type}</Text>
+          <Text style={{color: 'white'}}>{item.data}{item.brand}{item.type}</Text>
           <Text style={{color: 'grey'}}>Quantity:{item.quantity} bags</Text>
         </View>
         <View>

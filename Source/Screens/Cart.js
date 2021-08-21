@@ -8,17 +8,20 @@ import Header_Component from '../Components/Header_Component';
 import Cart21 from  './Cart21'
 export default function Cart({navigation}) {
 
-
+const [brand, setBrand] = useState('')
 
   useEffect(() => {
     fetch('http://192.168.118.103:7000/product/get_cart/58')
       .then(response => response.json())
       .then(json => setRdata(json.data))
+      // .then(json => setBrand(JSON.parse(json.data.data.brand)))
       .catch(error => console.error(error))
-      .then(console.log(Data));
+      .then(console.log(Data.data));
+      
   }, []);
 
-
+console.log()
+// const dataBrand = JSON.parse(Rdata.data.brand);
   const [selectedId, setSelectedId] = useState('')
   const [Rdata,setRdata]= useState('')
   const [Data, setData] = useState([
@@ -79,8 +82,6 @@ export default function Cart({navigation}) {
       </View>
     </View>
   );
-
-
 
 
 

@@ -18,10 +18,21 @@ import AddtoCard from '../../../../Components/AddtoCard';
 export default function BricksAndBlock({navigation}) {
 
 
-const submit=()=>{
-  
-}
-
+  const [formData, setFormData] = useState('');
+  const [data, setData] = useState('');
+  const submit = () => {
+    setData({type: Brick, brand: CementGrades});
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`http://192.168.43.154:7000/product/add_to_cart/23`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
 
   const [Visible, setVisible] = useState(false)
   const Callbackfunction = e => {

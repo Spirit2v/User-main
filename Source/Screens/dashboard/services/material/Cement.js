@@ -60,11 +60,17 @@ export default function Cement({navigation}) {
   const [formData, setFormData] = useState('');
   const [data, setData] = useState('');
   const submitx = () => {
-    setData({type: Brick, brand: CementGrades});
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
     setFormData({data: data, quantity: Quantity, type: 'Cement',});
     navigation.navigate('Cart',{formData})
     axios
-      .post(`http://192.168.43.154:7000/product/add_to_cart/23`, 
+      .post(`http://192.168.118.103:7000/product/add_to_cart/23`, 
       formData)
       .then(response => {
         console.log(response);
