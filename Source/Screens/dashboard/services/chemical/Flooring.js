@@ -1,3 +1,5 @@
+
+import {AddToCart} from "@env"
 import React from 'react';
 import {View, Text, Touchable, TouchableOpacity} from 'react-native';
 import RentingButton from '../../../../Components/RentingButton';

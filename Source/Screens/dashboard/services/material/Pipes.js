@@ -1,4 +1,5 @@
 import React from 'react';
+import {AddToCart} from "@env"
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 import {View, Text,TouchableOpacity} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
@@ -8,6 +9,42 @@ import Buttonq1 from '../../../../Components/Buttonq1';
 import AddtoCard from '../../../../Components/AddtoCard';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 export default function Pipes({navigation}) {
+
+
+
+
+
+
+
+
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
+
+
+
+
+
+
+
+
   const Types=['Selct All','Cast Iron Pipe',
     'Galvanized Iron Pipe',
     'Cast Iron Pipes','Stroneware Pipes',

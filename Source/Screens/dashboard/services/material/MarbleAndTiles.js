@@ -6,8 +6,50 @@ import Button from '../../../../Components/Button';
 import Buttonq from '../../../../Components/Buttonq';
 import Buttonq1 from '../../../../Components/Buttonq1';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
+import {AddToCart} from "@env";
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 export default function MarbleAndTiles({navigation}) {
+
+
+
+
+
+
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
   const Brand=['Select All',' Kajaria Ceramics Ltd'
    
     ,' Somany Floor Ltd','Bajaj Tiles','Simpolo Tiles'

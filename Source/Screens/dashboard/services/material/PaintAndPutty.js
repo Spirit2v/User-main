@@ -1,4 +1,5 @@
 import React from 'react';
+import {AddToCart} from "@env"
 import {View,TouchableOpacity, Text} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
 import AddtoCard from '../../../../Components/AddtoCard';
@@ -8,6 +9,42 @@ import Buttonq1 from '../../../../Components/Buttonq1';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 export default function PaintAndPutty({navigation}) {
+
+
+
+
+
+
+
+
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
+
+
+
+
+
+
+
+
   const Surface=['Interior','Exterior','Floor Paint', 'Tile Paint']
   const Type=['Enamle Paint','Oil Paint','Emulsion Paint','Cement Paint','Bituminous Paint','Plastic Paint','Anti-Corrosive Paint ','Cellulose Paint']
   const Brands=['Berger Paints','Nippon Paints','Kansai Paints','Asian Paints',' Indigo Paints','Dulux Paints', 'Shalimar Paints','jenson and Nicholsan']

@@ -1,4 +1,5 @@
 import React from 'react'
+import {AddToCart} from "@env"
 import { View, Text ,TouchableOpacity,} from 'react-native'
 import Styles from '../../../../Assets/Styles/Styles';
 import AddtoCard from '../../../../Components/AddtoCard';
@@ -8,6 +9,38 @@ import Buttonq1 from '../../../../Components/Buttonq1';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 export default function RMCmixture({navigation}) {
+
+
+
+
+
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
+
+
+
+
+
+
+
  const Grades=['Select All','M 10','M 15','M 20','M 25','M 30','M 35','M 40','M 45']
   return (
         <View style={Styles.ProfileDetails_container}>

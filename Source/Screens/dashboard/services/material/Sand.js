@@ -8,6 +8,7 @@ import {
   ScrollView
 } from 'react-native';
 import RentingButton from '../../../../Components/RentingButton';
+import {AddToCart} from "@env"
 import Styles from '../../../../Assets/Styles/Styles';
 import Button from '../../../../Components/Button';
 import Buttonq from '../../../../Components/Buttonq';

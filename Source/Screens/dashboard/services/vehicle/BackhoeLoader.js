@@ -1,4 +1,5 @@
 import React from 'react'
+import {AddToCart} from "@env"
 import { View, Text,TouchableOpacity, } from 'react-native'
 import Styles from '../../../../Assets/Styles/Styles';
 import BlackBox from '../../../../Components/BlackBox';

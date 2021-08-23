@@ -14,7 +14,7 @@ import Buttonq from '../../../../Components/Buttonq';
 import InputText from '../../../../Components/InputText';
 import Buttonq1 from '../../../../Components/Buttonq1';
 import AddtoCard from '../../../../Components/AddtoCard';
-
+import {AddToCart} from "@env"
 export default function BricksAndBlock({navigation}) {
 
 
@@ -25,7 +25,7 @@ export default function BricksAndBlock({navigation}) {
     setFormData({data: data, quantity: Quantity, type: 'Cement',});
     navigation.navigate('Cart',{formData})
     axios
-      .post(`http://192.168.43.154:7000/product/add_to_cart/23`, 
+      .post(`${AddToCart}`, 
       formData)
       .then(response => {
         console.log(response);
