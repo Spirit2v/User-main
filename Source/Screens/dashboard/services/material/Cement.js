@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import RNPickerSelect from 'react-native-picker-select';
+import {URL} from "@env"
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
 import Button from '../../../../Components/Button';
@@ -70,7 +71,7 @@ export default function Cement({navigation}) {
     setFormData({data: data, quantity: Quantity, type: 'Cement',});
     navigation.navigate('Cart',{formData})
     axios
-      .post(`http://192.168.118.103:7000/product/add_to_cart/23`, 
+      .post(`${URL}:7000/product/add_to_cart/23`, 
       formData)
       .then(response => {
         console.log(response);

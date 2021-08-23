@@ -6,12 +6,14 @@ import Buttonq1 from '../Components/Buttonq1';
 import CartCard from '../Components/CartCard';
 import Header_Component from '../Components/Header_Component';
 import Cart21 from  './Cart21'
+import {URL} from "@env"
+
 export default function Cart({navigation}) {
 
 const [brand, setBrand] = useState('')
 
   useEffect(() => {
-    fetch('http://192.168.118.103:7000/product/get_cart/58')
+    fetch(`${URL}/product/get_cart/58`)
       .then(response => response.json())
       .then(json => setRdata(json.data))
       // .then(json => setBrand(JSON.parse(json.data.data.brand)))
@@ -20,7 +22,6 @@ const [brand, setBrand] = useState('')
       
   }, []);
 
-console.log()
 // const dataBrand = JSON.parse(Rdata.data.brand);
   const [selectedId, setSelectedId] = useState('')
   const [Rdata,setRdata]= useState('')
