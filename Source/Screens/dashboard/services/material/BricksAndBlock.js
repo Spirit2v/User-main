@@ -21,8 +21,8 @@ export default function BricksAndBlock({navigation}) {
   const [formData, setFormData] = useState('');
   const [data, setData] = useState('');
   const submit = () => {
-    setData({type: Brick, brand: CementGrades});
-    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    setData({"type": Brick, "brand": CementGrades});
+    setFormData({data: data, quantity: Quantity, type: 'Bricks',});
     navigation.navigate('Cart',{formData})
     axios
       .post(`${AddToCart}`, 

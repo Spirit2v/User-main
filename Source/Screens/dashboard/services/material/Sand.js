@@ -19,10 +19,26 @@ import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 
 export default function Sand({navigation}) {
 
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
 
-const submit=()=>{
-  
-}
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
 
 
   const [Visible, setVisible] = useState(false)

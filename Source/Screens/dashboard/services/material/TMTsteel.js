@@ -9,41 +9,60 @@ import ServiceCardSand from '../../../../Components/ServiceCardSand';
 import AddtoCard from '../../../../Components/AddtoCard';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 export default function TMTsteel({navigation}) {
+
+  const submitx = () => {
+    
+    
+    
+    setData({"type": Brick, "brand": CementGrades});
+
+
+
+    setFormData({data: data, quantity: Quantity, type: 'Cement',});
+    navigation.navigate('Cart',{formData})
+    axios
+      .post(`${AddToCart}`, 
+      formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData)
+        alert('Saved');
+      });
+  };
+
+
   const Brand = [
-    'Select All',
-    'TATA TMT Steel',
-    'Vizag TMT Steel',
-    'Jindal TMT Steel',
-    'Simhadri TMT Steel',
-    'Mangal TMT Steel',
-    'Essar Steel',
-    'Mesco Steel',
-    'SRMB Steel',
-    'SAIL Steel',
-    'Kamdhenu Steel',
-    'Vinayak Steel',
-    'Visa Steel',
+    {id: '1', title:'Select All'},
+    {id: '1', title:'TATA TMT Steel'},
+    {id: '1', title:'Vizag TMT Steel'},
+    {id: '1', title:'Jindal TMT Steel'},
+    {id: '1', title:'Simhadri TMT Steel'},
+    {id: '1', title:'Mangal TMT Steel'},
+    {id: '1', title:'Essar Steel'},
+    {id: '1', title:    'Mesco Steel'},
+    {id: '1', title:'SRMB Steel'},
+    {id: '1', title:'SAIL Steel'},
+    {id: '1', title:    'Kamdhenu Steel'},
+    {id: '1', title:'Vinayak Steel'},
+    {id: '1', title:'Visa Steel'},
   ];
   const Grades = [
-    'Select All',
-    'Fe 450',
-    'Fe 500',
-    'Fe 500D',
-    'Fe 550',
-    'Fe 550D',
+      {id: '1', title:'Select All'}  ,
+      {id: '1', title:'Fe 450'},
+      {id: '1', title:'Fe 500',},{id: '1', title:'Fe 500D',},{id: '1', title:'Fe 550',},{id: '1', title:'Fe 550D'},
   ];
   const Sizes = [
-    'Select All',
-    '8 mm',
-    '10 mm',
-    '12 mm',
-    '16 mm',
-    '18 mm',
-    '20 mm',
-    '22 mm',
-    '25 mm',
-    '32 mm',
-    '36 mm',
+      {id: '1', title: 'Select All',},
+      {id: '1', title: '8 mm',},
+{id: '1', title: '10 mm',},
+{id: '1', title: '12 mm',},
+{id: '1', title: '16 mm',},
+{id: '1', title: '18 mm',},
+{id: '1', title: '20 mm',},
+{id: '1', title: '22 mm',},
+{id: '1', title: '25 mm',},
+{id: '1', title: '32 mm',},
+{id: '1', title: '36 mm',},
   ];
   return (
     <View style={Styles.ProfileDetails_container}>
