@@ -1,105 +1,58 @@
-import React from 'react';
-import {AddToCart} from '@env';
-import {View, TouchableOpacity, Text} from 'react-native';
-import Styles from '../../../../Assets/Styles/Styles';
-import AddtoCard from '../../../../Components/AddtoCard';
-import Button from '../../../../Components/Button';
-import Buttonq from '../../../../Components/Buttonq';
-import Buttonq1 from '../../../../Components/Buttonq1';
-import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
-import ServiceCardSand from '../../../../Components/ServiceCardSand';
-export default function PaintAndPutty({navigation}) {
-  const submitx = () => {
-    setData({'type': Brick, "brand": CementGrades});
+import React, {Component} from 'react';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-    setFormData({data: data, quantity: Quantity, type: 'PaintAndPutty'});
-    navigation.navigate('Cart', {formData});
-    axios.post(`${AddToCart}`, formData).then(response => {
-      console.log(response);
-      console.log(formData);
-      alert('Saved');
-    });
-  };
+import { StyleSheet, View, StatusBar } from 'react-native';
+import Header_Component from '../../../../Components/Header_Component';
+import Colors from '../../../../Utils/Colors';
 
-  const Surface = [
-    {id: '1', title: 'Interior'},
-    {id: '2', title: 'Exterior'},
-    {id: '3', title: 'Floor Paint'},
-    {id: '4', title: 'Tile Paint'},
-  ];
+import PitchedLeadScreen from './PitchLeadScreen';
+import NewLeadScreen from './NewLeadsScreen';
 
-  const Type = [
-    {id: '1', title: 'Enamle Paint'},
 
-    {id: '2', title: 'Oil Paint'},
-    {id: '3', title: 'Emulsion Paint'},
-    {id: '4', title: 'Cement Paint'},
+const Tab = createMaterialTopTabNavigator();
 
-    {id: '5', title: 'Bituminous Paint'},
-    {id: '6', title: 'Plastic Paint'},
-    {id: '7', title: 'Anti-Corrosive Paint '},
-    {id: '8', title: 'Cellulose Paint'},
-  ];
-  const Brands = [
-    {id: '1', title: 'Berger Paints'},
-    {id: '2', title: 'Nippon Paints'},
-    {id: '3', title: 'Kansai Paints'},
-    {id: '4', title: 'Asian Paints'},
-    {id: '5', title: ' Indigo Paints'},
-    {id: '6', title: 'Dulux Paints'},
-    {id: '7', title: 'Shalimar Paints'},
-    {id: '8', title: 'jenson and Nicholsan'},
-  ];
-  const Types = [
-    {id: '1', title: 'Whoye Cement Wall Putty'},
-    {id: '2', title: 'Acrylic Wall Putty'},
-    {id: '3', title: 'POP'},
-  ];
-  const Brand = [
-    {id: '1', title: 'Birla wallcare Putty'},
-    {id: '2', title: 'Jk Protomac Acryllic Wall Putty'},
-    {id: '3', title: 'Jk Cement '},
-    {id: '4', title: 'Iris Paint Wall Putty'},
-    {id: '5', title: 'Asian Paint'},
-    {id: '6', title: 'Bird White'},
-    {id: '7', title: 'Dulux Paint'},
-    {id: '8', title: 'VV Paint'},
-  ];
+function LeadsTab() {
   return (
-    <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 8, paddingHorizontal: 7}}>
-        <DropdownCheckbox Types={Brand} placeholder="Select brands" />
-        <DropdownCheckbox Types={Types} placeholder="Select Types" />
-
-        {/* <DropdownCheckbox 
-   Types={Sizes}
-   placeholder="Select Sizes"
-   /> */}
-        <View
-          style={{
-            marginTop: 20,
-            justifyContent: 'center',
-            alignItems: 'center',
-            flexDirection: 'row',
-          }}>
-          <AddtoCard />
-          <View style={{paddingHorizontal: 10}}></View>
-
-          <TouchableOpacity
-            onPress={() => {
-              navigation.navigate('Request');
-            }}>
-            <Buttonq1
-              onPress={() => {
-                navigation.navigate('Request');
-              }}
-              title="Request"
-              hi={42}
-              wi={78}
-            />
-          </TouchableOpacity>
-        </View>
-      </View>
-    </View>
+    <Tab.Navigator 
+        sceneContainerStyle={{backgroundColor: Colors.darkgrey}}
+        tabBarOptions={{
+            style: {backgroundColor: 'transparent'},
+            labelStyle: {color: 'white', textTransform: 'none', fontSize: 15},
+            indicatorStyle: {backgroundColor: Colors.yellow}
+        }}>
+      <Tab.Screen 
+        name="Paint" 
+        component={NewLeadScreen} 
+        options={{title: 'Paint'}}/>
+      <Tab.Screen 
+        name="Putty" 
+        component={PitchedLeadScreen}
+        options={{title: 'Putty'}}/>
+</Tab.Navigator>
   );
+
 }
+export default class PaintAndPutty extends Component{
+    render(){
+        return (
+            <View style={styles.container}>
+                <StatusBar backgroundColor={Colors.darkgrey}/>
+             
+                {LeadsTab()}
+                <View
+                style={{height:3}}
+                >
+
+                </View>
+             
+            </View>
+        )
+    }
+}
+
+const styles = StyleSheet.create({
+    container: {
+        flex: 1,
+        backgroundColor: Colors.darkgrey
+    }
+})
