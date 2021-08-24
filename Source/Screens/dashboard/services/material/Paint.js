@@ -6,8 +6,20 @@ import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import Header_Component from '../../../../Components/Header_Component';
 import Colors from '../../../../Utils/Colors';
 
-export default function NewLeadsScreen() {
-
+export default function Paint() {
+    const [Visible, setVisible] = useState(false);
+    const [Brick, setBrick] = useState('');
+    const [CementGrades, setCementGrades] = useState('');
+  
+    const setFunctio = e => {
+      setBrick(e);
+      setVisible(!Visible);
+    };
+    const [firstly, setFirstly] = useState('');
+    const setFunctio2 = e => {
+      setCementGrades(e);
+      setVisible(!Visible);
+    };
     const Surface = [
         {id: '1', title: 'Interior'},
         {id: '2', title: 'Exterior'},

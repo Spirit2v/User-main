@@ -41,11 +41,11 @@ export default function Cement({navigation}) {
     {id: '5', title: 'White Cement'},
   ];
   const options = ['Apple', 'Banana', 'Orange'];
-  const [selected, setSelected] = useState();
+
   const [Visible, setVisible] = useState(false);
   const [Brick, setBrick] = useState('');
   const [CementGrades, setCementGrades] = useState('');
-  const [selectedLanguage, setSelectedLanguage] = useState();
+
   const setFunctio = e => {
     setBrick(e);
     setVisible(!Visible);
@@ -55,13 +55,14 @@ export default function Cement({navigation}) {
     setCementGrades(e);
     setVisible(!Visible);
   };
-  global.formData;
+
   const [Quantity, setQuantity] = useState('');
   const [formDataB, setFormDataB] = useState('');
   const [formData, setFormData] = useState('');
   const [data, setData] = useState('');
+
   const submitx = () => {
-    setData({type: Brick, brand: CementGrades});
+    setData({'type': Brick, 'brand': CementGrades});
 
     setFormData({data: data, quantity: Quantity, type: 'Cement'});
     navigation.navigate('Cart', {formData});

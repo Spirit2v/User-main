@@ -19,7 +19,19 @@ import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 
 export default function Sand({navigation}) {
 
-  const submitx = () => {
+
+
+
+
+
+
+
+
+
+
+
+  
+  const submit = () => {
     
     
     

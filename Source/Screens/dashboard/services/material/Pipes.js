@@ -9,7 +9,22 @@ import Buttonq1 from '../../../../Components/Buttonq1';
 import AddtoCard from '../../../../Components/AddtoCard';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 export default function Pipes({navigation}) {
-  const submitx = () => {
+  const [Visible, setVisible] = useState(false);
+  const [Brick, setBrick] = useState('');
+  const [CementGrades, setCementGrades] = useState('');
+
+  const setFunctio = e => {
+    setBrick(e);
+    setVisible(!Visible);
+  };
+  const [firstly, setFirstly] = useState('');
+  const setFunctio2 = e => {
+    setCementGrades(e);
+    setVisible(!Visible);
+  };
+
+
+  const submit = () => {
     setData({type: Brick, brand: CementGrades});
 
     setFormData({data: data, quantity: Quantity, type: 'Cement'});

@@ -146,11 +146,11 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
 
     justifyContent: 'flex-start',
-    borderRadius: 2,
+    borderRadius: 0,
     padding: 10,
   },
   secondbox: {
-    borderRadius: 10,
+    borderRadius: 8,
     padding: 16,
     width: '100%',
     height: 53,
@@ -170,7 +170,7 @@ const styles = StyleSheet.create({
   },
 
   firstbox: {
-    borderRadius: 10,
+    borderRadius: 6,
     padding: 16,
     width: '100%',
     height: 53,

@@ -9,6 +9,22 @@ import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import {AddToCart} from '@env';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 export default function MarbleAndTiles({navigation}) {
+
+  const [Visible, setVisible] = useState(false);
+  const [Brick, setBrick] = useState('');
+  const [CementGrades, setCementGrades] = useState('');
+
+  const setFunctio = e => {
+    setBrick(e);
+    setVisible(!Visible);
+  };
+  const [firstly, setFirstly] = useState('');
+  const setFunctio2 = e => {
+    setCementGrades(e);
+    setVisible(!Visible);
+  };
+
+
   const submitx = () => {
     setData({type: Brick, brand: CementGrades});
 

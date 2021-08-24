@@ -5,7 +5,24 @@ import AddtoCard from '../../../../Components/AddtoCard';
 import Buttonq1 from '../../../../Components/Buttonq1';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 
-export default function PitchLeadScreen() {
+export default function Putty() {
+
+
+  const [Visible, setVisible] = useState(false);
+  const [Brick, setBrick] = useState('');
+  const [CementGrades, setCementGrades] = useState('');
+
+  const setFunctio = e => {
+    setBrick(e);
+    setVisible(!Visible);
+  };
+  const [firstly, setFirstly] = useState('');
+  const setFunctio2 = e => {
+    setCementGrades(e);
+    setVisible(!Visible);
+  };
+
+
   const puttyTypes = [
     {id: '1', title: 'Whoye Cement Wall Putty'},
     {id: '2', title: 'Acrylic Wall Putty'},

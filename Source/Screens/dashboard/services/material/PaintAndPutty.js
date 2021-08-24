@@ -5,8 +5,10 @@ import {StyleSheet, View, StatusBar} from 'react-native';
 import Header_Component from '../../../../Components/Header_Component';
 import Colors from '../../../../Utils/Colors';
 
-import PitchedLeadScreen from './PitchLeadScreen';
-import NewLeadScreen from './NewLeadsScreen';
+import PitchedLeadScreen from './Putty';
+import NewLeadScreen from './Paint';
+import Paint from './Paint';
+import Putty from './Putty';
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -28,12 +30,12 @@ function LeadsTab() {
       }}>
       <Tab.Screen
         name="Paint"
-        component={NewLeadScreen}
+        component={Paint}
         options={{title: 'Paint'}}
       />
       <Tab.Screen
         name="Putty"
-        component={PitchedLeadScreen}
+        component={Putty}
         options={{title: 'Putty'}}
       />
     </Tab.Navigator>

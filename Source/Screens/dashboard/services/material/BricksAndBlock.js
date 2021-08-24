@@ -7,6 +7,7 @@ import {
   TouchableOpacity,
   ScrollView
 } from 'react-native';
+import axios from 'axios';
 import RentingButton from '../../../../Components/RentingButton';
 import Styles from '../../../../Assets/Styles/Styles';
 import Button from '../../../../Components/Button';
@@ -16,12 +17,12 @@ import Buttonq1 from '../../../../Components/Buttonq1';
 import AddtoCard from '../../../../Components/AddtoCard';
 import {AddToCart} from "@env"
 export default function BricksAndBlock({navigation}) {
-
+const [Quantity, setQuantity] = useState('')
 
   const [formData, setFormData] = useState('');
   const [data, setData] = useState('');
   const submit = () => {
-    setData({"type": Brick, "brand": CementGrades});
+    setData({"type": Brick});
     setFormData({data: data, quantity: Quantity, type: 'Bricks',});
     navigation.navigate('Cart',{formData})
     axios
@@ -63,25 +64,25 @@ export default function BricksAndBlock({navigation}) {
           value="Clay"
           Callbackfunctio={Callbackfunction}
         />
-        <Text>{Brick}</Text>
+       
         <RentingButton
           value="Cement"
-          Callbackfunctio={Callbackfunction1}
+          Callbackfunctio={Callbackfunction}
           text="Cement Bricks"
         />
-        <Text>{Cement}</Text>
+      
         <RentingButton 
                   value="FlyAsh"
-                  Callbackfunctio={Callbackfunction2}
+                  Callbackfunctio={Callbackfunction}
         text="Fly Ash Bricks" />
-        <Text>{FlyAsh}</Text>
+      
         <TouchableOpacity style={{flexDirection: 'row'}}>
 {Visible ?
 (
 <InputText
   placeholder="Enter Quantity"
   width={'100%'}
-  
+  onChangeText={text => setQuantity(text)}
   />
   )
 :
@@ -89,7 +90,7 @@ export default function BricksAndBlock({navigation}) {
        
     
         </TouchableOpacity>
-
+        <Text>{Brick}</Text>
         <View
           style={{
             marginTop: 20,
