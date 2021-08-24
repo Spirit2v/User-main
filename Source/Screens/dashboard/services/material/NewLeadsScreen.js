@@ -1,19 +1,89 @@
 import React, {Component} from 'react';
 import { StyleSheet, View,Text, ScrollView, TextInput, TouchableOpacity } from 'react-native';
+import AddtoCard from '../../../../Components/AddtoCard';
+import Buttonq1 from '../../../../Components/Buttonq1';
+import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import Header_Component from '../../../../Components/Header_Component';
 import Colors from '../../../../Utils/Colors';
 
-export default class NewLeadsScreen extends Component{
-    render(){
+export default function NewLeadsScreen() {
+
+    const Surface = [
+        {id: '1', title: 'Interior'},
+        {id: '2', title: 'Exterior'},
+        {id: '3', title: 'Floor Paint'},
+        {id: '4', title: 'Tile Paint'},
+      ];
+    
+      const Type = [
+        {id: '1', title: 'Enamle Paint'},
+    
+        {id: '2', title: 'Oil Paint'},
+        {id: '3', title: 'Emulsion Paint'},
+        {id: '4', title: 'Cement Paint'},
+    
+        {id: '5', title: 'Bituminous Paint'},
+        {id: '6', title: 'Plastic Paint'},
+        {id: '7', title: 'Anti-Corrosive Paint '},
+        {id: '8', title: 'Cellulose Paint'},
+      ];
+      const Brands = [
+        {id: '1', title: 'Berger Paints'},
+        {id: '2', title: 'Nippon Paints'},
+        {id: '3', title: 'Kansai Paints'},
+        {id: '4', title: 'Asian Paints'},
+        {id: '5', title: ' Indigo Paints'},
+        {id: '6', title: 'Dulux Paints'},
+        {id: '7', title: 'Shalimar Paints'},
+        {id: '8', title: 'jenson and Nicholsan'},
+      ];
+
         return (
             <ScrollView style={styles.container}>
                
                 <View style={styles.containerContent}>
-                  
+
+                    <View
+                    
+                    style={{height:20}}
+                    >
+                        
+                    </View>
+                <DropdownCheckbox Types={Type} placeholder="Select Surface" />
+                <DropdownCheckbox Types={Brands} placeholder="Select brands" />
+        <DropdownCheckbox Types={Type} placeholder="Select Types" />
+        <DropdownCheckbox Types={Type} placeholder="Trade" />
+
+
+        <View
+          style={{
+            marginTop: 20,
+            justifyContent: 'center',
+            alignItems: 'center',
+            flexDirection: 'row',
+          }}>
+          <AddtoCard />
+
+          <View style={{paddingHorizontal: 10}}></View>
+
+          <TouchableOpacity
+            onPress={() => {
+              navigation.navigate('Request');
+            }}>
+            <Buttonq1
+              onPress={() => {
+                navigation.navigate('Request');
+              }}
+              title="Request"
+              hi={42}
+              wi={78}
+            />
+          </TouchableOpacity>
+        </View>
                 </View>
             </ScrollView>
         )
-    }
+    
 }
 
 const styles = StyleSheet.create({

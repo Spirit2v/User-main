@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import RNPickerSelect from 'react-native-picker-select';
-import {AddToCart} from "@env"
+import {AddToCart} from '@env';
 import {View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
 import Button from '../../../../Components/Button';
@@ -61,23 +61,15 @@ export default function Cement({navigation}) {
   const [formData, setFormData] = useState('');
   const [data, setData] = useState('');
   const submitx = () => {
-    
-    
-    
-    setData({"type": Brick, "brand": CementGrades});
+    setData({type: Brick, brand: CementGrades});
 
-
-
-    setFormData({data: data, quantity: Quantity, type: 'Cement',});
-    navigation.navigate('Cart',{formData})
-    axios
-      .post(`${AddToCart}`, 
-      formData)
-      .then(response => {
-        console.log(response);
-        console.log(formData)
-        alert('Saved');
-      });
+    setFormData({data: data, quantity: Quantity, type: 'Cement'});
+    navigation.navigate('Cart', {formData});
+    axios.post(`${AddToCart}`, formData).then(response => {
+      console.log(response);
+      console.log(formData);
+      alert('Saved');
+    });
   };
   return (
     <ScrollView>
