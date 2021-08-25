@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component,useState} from 'react';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
 
 import {StyleSheet, View, StatusBar} from 'react-native';
@@ -21,11 +21,11 @@ function LeadsTab() {
         labelStyle: {color: 'white', textTransform: 'none', fontSize: 20},
         indicatorStyle: {
           backgroundColor: Colors.yellow,
-          width: 100,
+          // width: 100,
           justifyContent: 'center',
           alignContent: 'center',
           alignItems: 'center',
-          marginLeft: 53,
+          // marginLeft: '10%',
         },
       }}>
       <Tab.Screen

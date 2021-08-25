@@ -109,14 +109,7 @@ const ConstructionMaterials = ({navigation}) => {
         </TouchableOpacity>
 
 
-        <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Sand');
-          }}>
-      
-          <ConstructionMaterials_card Icon={Shuttering} Title="Shuttering" />
-        </TouchableOpacity>
-      
+    
       
       </View>
     </ScrollView>

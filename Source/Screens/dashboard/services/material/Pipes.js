@@ -1,5 +1,6 @@
 import React,{useState} from 'react';
 import {AddToCart} from '@env';
+import axios from 'axios';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 import {View, Text, TouchableOpacity} from 'react-native';
 import Styles from '../../../../Assets/Styles/Styles';
@@ -8,11 +9,14 @@ import Buttonq from '../../../../Components/Buttonq';
 import Buttonq1 from '../../../../Components/Buttonq1';
 import AddtoCard from '../../../../Components/AddtoCard';
 import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
+import InputText from '../../../../Components/InputText';
 export default function Pipes({navigation}) {
   const [Visible, setVisible] = useState(false);
   const [Brick, setBrick] = useState('');
   const [CementGrades, setCementGrades] = useState('');
-const [Typee, setTypee] = useState('')
+
+const [User, setUser] = useState('')
+  const [Typee, setTypee] = useState('')
   const setFunctio = e => {
     setBrick(e);
     setVisible(!Visible);
@@ -21,10 +25,11 @@ const [Typee, setTypee] = useState('')
     setBrick(e);
     setVisible(!Visible);
   };
-
+const [data, setData] = useState('')
+const [formData, setFormData] = useState('')
   const [Quantity, setQuantity] = useState('')
   const submit = () => {
-    setData({type: Brick, brand: CementGrades});
+    setData({'type': Typee});
 
     setFormData({data: data, quantity: Quantity, type: 'Cement'});
     navigation.navigate('Cart', {formData});
@@ -58,7 +63,7 @@ const [Typee, setTypee] = useState('')
           <View>
             <InputText
               keyboardType="numeric"
-              placeholder="Quantity of Cement"
+              placeholder="Quantity of Pipes"
               onChangeText={text => setQuantity(text)}
             />
           </View>
@@ -72,7 +77,17 @@ const [Typee, setTypee] = useState('')
             alignItems: 'center',
             flexDirection: 'row',
           }}>
-          <AddtoCard />
+        {User ? <AddtoCard /> :
+          <TouchableOpacity
+          onPress={submit}
+          >
+          <Buttonq 
+          title="Add to Cart"
+          hi={42}
+          wi={111}
+          />
+          </TouchableOpacity>
+        }  
           <View style={{paddingHorizontal: 10}}></View>
 
           <TouchableOpacity
