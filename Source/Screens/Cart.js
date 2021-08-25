@@ -6,14 +6,14 @@ import Buttonq1 from '../Components/Buttonq1';
 import CartCard from '../Components/CartCard';
 import Header_Component from '../Components/Header_Component';
 import Cart21 from  './Cart21'
-import {URL} from "@env"
+
 
 export default function Cart({navigation}) {
 
 const [brand, setBrand] = useState('')
 
   useEffect(() => {
-    fetch(`${URL}/product/get_cart/58`)
+    fetch(`${global.URL}/product/get_cart/23`)
       .then(response => response.json())
       .then(json => setRdata(json.data))
       // .then(json => setBrand(JSON.parse(json.data.data.brand)))
@@ -48,7 +48,7 @@ const [brand, setBrand] = useState('')
           }}></View>
         <View>
           <Text style={{color: 'white'}}>{item.title}</Text>
-          <Text style={{color: 'grey'}}>Quantity:{item.quantity} bags</Text>
+          <Text style={{color: 'grey'}}>Quantity:{item.quantity} </Text>
         </View>
         <View>
           <TouchableOpacity>
@@ -89,6 +89,7 @@ const [brand, setBrand] = useState('')
 
   return (
     <View style={{backgroundColor: '#121417', flex: 1}}>
+      {/* {alert(`${global.URL}:7000/product/get_cart/58`)} */}
       <Header_Component Heading="Cart" />
       <ScrollView style={{backgroundColor: '#121417', padding: 20}}>
         <View

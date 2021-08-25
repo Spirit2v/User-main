@@ -1,18 +1,24 @@
-import React,{useState} from 'react';
-import {View, Text,StyleSheet,FlatList,TouchableOpacity} from 'react-native';
+import axios from 'axios';
+import React, {useState} from 'react';
+import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 
-export default function Cart1({navigation,Data,setData}) {
-const deletebyId=(id)=>{
-  const filteredData = Data.filter(item => item.id !== id);
-  setData(filteredData);
-}
-    const [selectedId, setSelectedId] = useState('')
+export default function Cart1({navigation, Data, setData}) {
+  const deletebyId = id => {
+    const filteredData = Data.filter(item => item.id == id);
+    axios
+      .post(`${global.URL}/product/delete_cart_item/23}`, id)
+      .then(response => {
+        console.log(response);
 
+        alert('Deleted');
+      });
+    const NewData = Data.filter(item => item.id !== id);
+    setData(NewData);
+  };
+  const [selectedId, setSelectedId] = useState('');
 
   const renderItem = ({item}) => (
-   
-
-   <View style={styles.box}>
+    <View style={styles.box}>
       <View style={styles.border}>
         <View
           style={{
@@ -22,7 +28,11 @@ const deletebyId=(id)=>{
             borderRadius: 4,
           }}></View>
         <View>
-          <Text style={{color: 'white'}}>{item.data}{item.brand}{item.type}</Text>
+          <Text style={{color: 'white'}}>
+            {item.data}
+            {item.brand}
+            {item.type}
+          </Text>
           <Text style={{color: 'grey'}}>Quantity:{item.quantity} bags</Text>
         </View>
         <View>
@@ -47,7 +57,7 @@ const deletebyId=(id)=>{
           <Text style={{color: '#ffb600'}}>Edit</Text>
         </TouchableOpacity>
         <TouchableOpacity
-        onPress={()=>deletebyId(item.id)}
+          onPress={() => deletebyId(item.id)}
           style={{
             height: '100%',
             width: '50%',
@@ -55,7 +65,6 @@ const deletebyId=(id)=>{
             alignItems: 'center',
           }}>
           <Text style={{color: '#ffb600'}}>Delete</Text>
-       
         </TouchableOpacity>
       </View>
     </View>

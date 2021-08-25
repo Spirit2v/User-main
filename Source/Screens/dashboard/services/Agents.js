@@ -1,54 +1,35 @@
 import React, {Component, useState} from 'react';
 import {Text, View} from 'react-native';
 import Styles from '../../../Assets/Styles/Styles';
-import Button from '../../../Components/Button';
-import Profile_card from '../../../Components/Profile_card';
 import RentingButton from '../../../Components/RentingButton';
-import CheckBox from '@react-native-community/checkbox';
-import Button2 from '../../../Components/Button2';
 import Buttonq1 from '../../../Components/Buttonq1';
 import Buttonq from '../../../Components/Buttonq';
-import ServiceCardSand from '../../../Components/ServiceCardSand';
 import InputText from '../../../Components/InputText';
 import DropdownCheckbox from '../../../Components/DropdownCheckbox';
 import AddtoCard from '../../../Components/AddtoCard';
 import axios from 'axios';
 import {AddToCart} from '@env';
-import { TouchableOpacity } from 'react-native';
+import {TouchableOpacity} from 'react-native';
 
 const Agents = ({navigation}) => {
-
-
-
-
-
-
   const [data, setData] = useState('');
   const [formData, setFormData] = useState('');
-  
-  const submit = () => {
-    setData({'materials': Material, 'gender': Genderr});
 
+  const submit = () => {
+    setData({materials: Material, gender: Genderr});
     setFormData({data: data, quantity: Quantity, type: 'agent'});
-    navigation.navigate('Cart', {formData});
-    axios.post(`${AddToCart}`, formData).then(response => {
-      console.log(response);
-      console.log(formData);
-      alert('Saved');
-    });
+
+    axios
+      .post(`${global.URL}/product/add_to_cart/23`, formData)
+      .then(response => {
+        console.log(response);
+        console.log(formData);
+        navigation.navigate('Cart', {formData});
+        alert('Saved');
+      });
   };
 
-
-
-
-
-
-
-
-
-
-
-const [User, setUser] = useState('')
+  const [User, setUser] = useState('');
 
   const [Visible, setVisible] = useState(false);
   const Callbackfunction = e => {
@@ -126,12 +107,13 @@ const [User, setUser] = useState('')
           alignItems: 'center',
           flexDirection: 'row',
         }}>
-
-          {User ? <AddtoCard/> :
-           <TouchableOpacity
-           onPress={submit}
-           >  
-             <Buttonq title="Add to Cart" hi={45} wi={133} /></TouchableOpacity>     }
+        {User ? (
+          <AddtoCard />
+        ) : (
+          <TouchableOpacity onPress={submit}>
+            <Buttonq title="Add to Cart" hi={45} wi={133} />
+          </TouchableOpacity>
+        )}
         <View style={{paddingHorizontal: 10}}></View>
         <Buttonq1 title="Request" hi={45} wi={103} />
       </View>
