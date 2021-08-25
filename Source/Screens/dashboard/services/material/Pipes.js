@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{useState} from 'react';
 import {AddToCart} from '@env';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 import {View, Text, TouchableOpacity} from 'react-native';
@@ -12,18 +12,17 @@ export default function Pipes({navigation}) {
   const [Visible, setVisible] = useState(false);
   const [Brick, setBrick] = useState('');
   const [CementGrades, setCementGrades] = useState('');
-
+const [Typee, setTypee] = useState('')
   const setFunctio = e => {
     setBrick(e);
     setVisible(!Visible);
   };
-  const [firstly, setFirstly] = useState('');
-  const setFunctio2 = e => {
-    setCementGrades(e);
+  const setFunctio1 = e => {
+    setBrick(e);
     setVisible(!Visible);
   };
 
-
+  const [Quantity, setQuantity] = useState('')
   const submit = () => {
     setData({type: Brick, brand: CementGrades});
 
@@ -52,8 +51,20 @@ export default function Pipes({navigation}) {
   return (
     <View style={Styles.ProfileDetails_container}>
       <View style={{marginTop: 8, paddingHorizontal: 7}}>
-        <DropdownCheckbox Types={Types} placeholder="Select Types" />
-
+        <DropdownCheckbox 
+        setFunction={setFunctio}
+        Types={Types} placeholder="Select Types" />
+{Visible ? (
+          <View>
+            <InputText
+              keyboardType="numeric"
+              placeholder="Quantity of Cement"
+              onChangeText={text => setQuantity(text)}
+            />
+          </View>
+        ) : (
+          <View></View>
+        )}
         <View
           style={{
             marginTop: 20,

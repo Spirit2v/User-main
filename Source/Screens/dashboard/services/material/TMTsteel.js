@@ -24,7 +24,7 @@ const [formData, setFormData] = useState('')
 const [data, setData] = useState('')
   const [User, setUserT] = useState('')
   const submit = () => {
-    setData({'grade': TMTsteelType, 'brand': TMTsteel});
+    setData({'grade': TMTgrade, 'brand': TMTsteelBrand,'size':setTMTSize});
 
     setFormData({data: data, quantity: Quantity, type: 'TMTsteel'});
     navigation.navigate('Cart', {formData});
@@ -74,16 +74,16 @@ const [data, setData] = useState('')
 
   const [TMTsteel, setTMTsteelBrand] = useState('');
   const setFunctio = e => {
-    setTMTsteelBrand(e);
+    setTMTgrade(e);
   };
   const [TMTsteelType, setTMTsteelType] = useState('');
   const setFunctio1 = e => {
-    setTMTsteelType(e);
+    setTMTsteelBrand(e);
   };
-
+const [TMTsize, setTMTsize] = useState('')
   const [TMTgrade, setTMTgrade] = useState('')
   const setFunctio2 = e => {
-    setTMTgrade(e); setVisible(!Visible);
+    setTMTSize(e); setVisible(!Visible);
 
   };
   const [SizeUnit, setSizeUnit] = useState('')
@@ -108,7 +108,7 @@ const [Quantity, setQuantity] = useState('')
 
     <View style={Styles.ProfileDetails_container}>
       <View style={{marginTop: 8, paddingHorizontal: 7}}>
-        <Text>{TMTsteel}</Text>{}
+        <Text>{TMTsteel}{Quantity}</Text>{}
         <DropdownCheckbox Types={Brand} 
          setFunction={setFunctio1}
         placeholder="Select brands" 
@@ -157,7 +157,8 @@ style={{flexDirection:'row',marginHorizontal:2}}
 :
 (<View></View>)}
 <Text>
-  {TMTsteel},{TMTsteelType},{TMTgrade}
+  {TMTsteel},{TMTsteelType},
+  {TMTgrade},{Quantity}{SizeUnit}
 </Text>
         <View
           style={{
