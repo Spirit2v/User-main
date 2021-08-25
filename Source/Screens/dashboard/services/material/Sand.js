@@ -1,4 +1,5 @@
 import React, {useState} from 'react';
+import axios from 'axios';
 import {
   View,
   Text,
@@ -21,6 +22,12 @@ export default function Sand({navigation}) {
 
 
 
+  const Weight = [
+    {id: '1', title: 'kg'},
+    {id: '2', title: 'ton'},
+    {id: '3', title: 'Cubic mt'},
+    {id: '4', title: 'Cubic ft'},
+  ];
 
 
 
@@ -28,46 +35,42 @@ export default function Sand({navigation}) {
 
 
 
-
-
-  
-  const submit = () => {
-    
-    
-    
-    setData({"type": Brick, "brand": CementGrades});
-
-
-
-    setFormData({data: data, quantity: Quantity, type: 'Cement',});
-    navigation.navigate('Cart',{formData})
-    axios
-      .post(`${AddToCart}`, 
-      formData)
-      .then(response => {
-        console.log(response);
-        console.log(formData)
-        alert('Saved');
-      });
+  const [SizeUnit, setSizeUnit] = useState('')
+  const setFunctio3 = e => {
+    setSizeUnit(e);
+    setQuantity(Quantity1,SizeUnit)
   };
 
+  
+  const [Quantity, setQuantity] = useState('')
+  const [Quantity1, setQuantity1] = useState('');
+  const [data, setData] = useState('');
+  const [formData, setFormData] = useState('');
+  const submit = () => {
+    setData({'size': SandSize});
 
+    setFormData({data: data, quantity: Quantity, type: 'Sand'});
+    navigation.navigate('Cart', {formData});
+    axios.post(`${AddToCart}`, formData).then(response => {
+      console.log(response);
+      console.log(formData);
+      alert('Saved');
+    });
+  };
 
   const [Visible, setVisible] = useState(false)
   const Callbackfunction = e => {
-    setBrick(e);  setVisible(!Visible)
+    setSandSize(e);  setVisible(!Visible)
   };
   const Callbackfunction1 = e => {
-    setCement(e);
+    setSandSize(e);
     setVisible(!Visible)
   };
   const Callbackfunction2 = e => {
-    setFlyAsh(e);  setVisible(!Visible)
+    setSandSize(e);  setVisible(!Visible)
   };
-  const [Brick, setBrick] = useState('');
-  const [Cement, setCement] = useState('');
-  const [FlyAsh, setFlyAsh] = useState('')
-  const [Switch, setSwitch] = useState(true);
+  const [SandSize, setSandSize] = useState('');
+
 
 
   return (<ScrollView>
@@ -82,18 +85,18 @@ export default function Sand({navigation}) {
           value="Low"
           Callbackfunctio={Callbackfunction}
         />
-        <Text>{Brick}</Text>
+       
         <RentingButton
           value="Medium"
           Callbackfunctio={Callbackfunction1}
           text="Medium"
         />
-        <Text>{Cement}</Text>
+        
         <RentingButton 
                   value="High"
                   Callbackfunctio={Callbackfunction2}
         text="High" />
-        <Text>{FlyAsh}</Text>
+        <Text>{SandSize}</Text>
         <TouchableOpacity style={{flexDirection: 'row'}}>
 {Visible ?
 (<View>
@@ -110,7 +113,7 @@ style={{flexDirection:'row',marginHorizontal:2}}
 <InputText
   placeholder="Enter Quantity"
   width={'50%'}
-  
+  onChangeText={(text) => setQuantity1(text)}
   />
   <View
   style={{marginHorizontal:12}}
@@ -120,6 +123,8 @@ style={{flexDirection:'row',marginHorizontal:2}}
   >
   <DropdownCheckbox
   placeholder="Units"
+  Types={Weight}
+  setFunction={setFunctio3}
   /></View>
   </View>
   </View>
