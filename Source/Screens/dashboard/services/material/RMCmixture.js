@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, {useState} from 'react';
 import {AddToCart} from '@env';
 import axios from 'axios';
 import {View, Text, TouchableOpacity} from 'react-native';
@@ -11,7 +11,7 @@ import DropdownCheckbox from '../../../../Components/DropdownCheckbox';
 import ServiceCardSand from '../../../../Components/ServiceCardSand';
 import InputText from '../../../../Components/InputText';
 export default function RMCmixture({navigation}) {
-const [UserT, setUserT] = useState('')
+  const [UserT, setUserT] = useState('');
   const Grades = [
     {id: '1', title: 'Select All'},
     {id: '2', title: 'M 10'},
@@ -31,10 +31,6 @@ const [UserT, setUserT] = useState('')
     {id: '4', title: 'Cubic ft'},
   ];
 
-
-
-
-
   const [Visible, setVisible] = useState(false);
   // const [Brick, setBrick] = useState('');
   // const [CementGrades, setCementGrades] = useState('');
@@ -48,18 +44,23 @@ const [UserT, setUserT] = useState('')
   //   setCementGrades(e);
   //   setVisible(!Visible);
   // };
-  const [SizeUnit, setSizeUnit] = useState('')
+  const [SizeUnit, setSizeUnit] = useState('');
+
+
+
   const setFunctio3 = e => {
     setSizeUnit(e);
-    setQuantity(Quantity1,SizeUnit)
+    setQuantity(Quantity1, SizeUnit);
   };
-  const [Quantity, setQuantity] = useState('')
+
+  
+  const [Quantity, setQuantity] = useState('');
   const [Quantity1, setQuantity1] = useState('');
 
-const [formData, setFormData] = useState('')
-const [data, setData] = useState('')
+  const [formData, setFormData] = useState('');
+  const [data, setData] = useState('');
   const submitx = () => {
-    setData({'Grades': RMCgrade});
+    setData({Grades: RMCgrade});
 
     setFormData({data: data, quantity: Quantity, type: 'RMC Mixture'});
     navigation.navigate('Cart', {formData});
@@ -70,20 +71,22 @@ const [data, setData] = useState('')
     });
   };
 
-  const [RMCgrade, setRMCgrade] = useState('')
+  const [RMCgrade, setRMCgrade] = useState('');
   const Callbackfunction = e => {
-    setRMCgrade(e);  
-    setVisible(!Visible)
+    setRMCgrade(e);
+    setVisible(!Visible);
   };
 
   return (
     <View style={Styles.ProfileDetails_container}>
       <View style={{marginTop: 8, paddingHorizontal: 7}}>
-        <DropdownCheckbox 
-         setFunction={Callbackfunction}
-        Types={Grades} placeholder="Select Grade" />
+        <DropdownCheckbox
+          setFunction={Callbackfunction}
+          Types={Grades}
+          placeholder="Select Grade"
+        />
 
-{Visible ? (
+        {Visible ? (
           <View>
             <View style={{flexDirection: 'row'}}>
               <Text style={{color: 'white', marginBottom: 10}}>Quantity</Text>
@@ -92,7 +95,7 @@ const [data, setData] = useState('')
               <InputText
                 placeholder="Enter a Value"
                 width={'50%'}
-                onChangeText={(text) => setQuantity1(text)}
+                onChangeText={text => setQuantity1(text)}
               />
               <View style={{marginHorizontal: 12}}></View>
               <View style={{width: '42%'}}>
@@ -114,18 +117,14 @@ const [data, setData] = useState('')
             alignItems: 'center',
             flexDirection: 'row',
           }}>
-            {UserT ? <AddtoCard /> :
-             <TouchableOpacity
-             onPress={submitx}
-             >
-             <Buttonq 
-             title="Add to Cart"
-             hi={42}
-             wi={111}
-             />
-             </TouchableOpacity>
-            }
-                  
+          {UserT ? (
+            <AddtoCard />
+          ) : (
+            <TouchableOpacity onPress={submitx}>
+              <Buttonq title="Add to Cart" hi={42} wi={111} />
+            </TouchableOpacity>
+          )}
+
           {/*  */}
           <View style={{paddingHorizontal: 10}}></View>
 

@@ -5,11 +5,13 @@ import {View, Text, StyleSheet, FlatList, TouchableOpacity} from 'react-native';
 export default function Cart1({navigation, Data, setData}) {
   const deletebyId = id => {
     const filteredData = Data.filter(item => item.id == id);
-    axios
+ axios
       .post(`${global.URL}/product/delete_cart_item/23}`, id)
-      .then(response => {
-        console.log(response);
-
+    
+        .then(function (response) {            
+          console.log(response)
+        alert(id)
+         
         alert('Deleted');
       });
     const NewData = Data.filter(item => item.id !== id);

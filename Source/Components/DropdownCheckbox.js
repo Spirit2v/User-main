@@ -38,24 +38,19 @@ const DropdownCheckbox = ({Types, placeholder, setFunction}) => {
   const [checked, onChange] = useState(false);
   const [Clay, setClay] = useState('');
   const [title, setTitle] = useState('');
-  const [test, settest] = useState('')
-  const nol="";
-const work=(item)=>{
-
-    setSelectedId('')
-      setFunction(nol)
-setTitle(item.title)
-
-}
+  const [test, settest] = useState('');
+  const nol = '';
+  const work = item => {
+    setSelectedId('');
+    setFunction(nol);
+    setTitle(item.title);
+  };
   const onclick = item => {
-    {item.id === selectedId ?
-
-       work(item)
-      :  setSelectedId(item.id)
-      setFunction(item.title)
-setTitle(item.title)
+    {
+      item.id === selectedId ? work(item) : setSelectedId(item.id);
+      setFunction(item.title);
+      setTitle(item.title);
     }
-  
 
     // onChange(!checked);
     //   {
@@ -65,6 +60,8 @@ setTitle(item.title)
 
   const Data = Types;
   const [shouldShow, setShouldShow] = useState(true);
+
+  
   const renderItem = ({item}) => (
     <View style={[styles.secondbox1]}>
       <View style={styles.cont}>
@@ -110,6 +107,8 @@ setTitle(item.title)
               marginBottom: -10,
               marginTop: 0.6,
             }}></View>
+
+
           <FlatList
             nestedScrollEnabled={true}
             data={Data}
