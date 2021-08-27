@@ -21,8 +21,8 @@
  import StatusBar from './Source/Components/StatusBar';
  
  const App = () => {
-  global.URL="http://192.168.147.103:7000"
-  global.AddToCart="http://192.168.147.103:7000/product/get_cart/23"
+  global.URL="http://192.168.43.154:7000"
+  global.AddToCart="http://192.168.43.154:7000/product/get_cart/23"
   
    return (
      <>

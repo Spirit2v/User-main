@@ -65,7 +65,7 @@ export default function Cement({navigation}) {
     setData({'type': Brick, 'brand': CementGrades});
 
     setFormData({data: data, quantity: Quantity, type: 'Cement'});
-    navigation.navigate('Cart', {formData});
+   
     axios.post(`${AddToCart}`, formData).then(response => {
       console.log(response);
       console.log(formData);
