@@ -6,8 +6,8 @@ import Header_Component from '../../../../Components/Header_Component';
 import Colors from '../../../../Utils/Colors';
 
 import PitchedLeadScreen from './Putty';
-import NewLeadScreen from './Paint';
-import Paint from './Paint';
+import NewLeadScreen from '../../Paint';
+import Paint from '../../Paint';
 import Putty from './Putty';
 
 const Tab = createMaterialTopTabNavigator();

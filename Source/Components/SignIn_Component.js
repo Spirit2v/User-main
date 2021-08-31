@@ -1,18 +1,51 @@
 import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Image, StyleSheet, Dimensions} from 'react-native';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  Image,
+  StyleSheet,
+  Dimensions,
+} from 'react-native';
 import Styles from '../Assets/Styles/Styles';
 import {CommonActions, useNavigation} from '@react-navigation/native';
 import TextStyles from '../Assets/Styles/TextStyles';
-import { TextInput } from 'react-native-paper';
+import {TextInput} from 'react-native-paper';
+import axios from 'axios';
+// import { useDispatch } from 'react-redux';
+// import signin from '../redux/actions/auth'
 
 const screenHeight = Dimensions.get('window').height;
-
+// const dispatch = useDispatch();
 const SignInComponent = () => {
+
+
+
+
+  const submit = async(e) => {
+    alert('ere')
+    e.preventDefault()
+    setformData({email: Email, password: Password});
+    //redux-dispatch
+    //action-api
+
+  //   const valueReturned = await dispatch(signin(formData));
+  //  console.log(valueReturned);
+  };
+
+  const [Email, setEmail] = useState('');
+  const [Password, setPassword] = useState('');
+  const [formData, setformData] = useState('');
+
   const navigation = useNavigation();
-  const [check, setCheck] = useState(false)
+  const [check, setCheck] = useState(false);
   const [passwordVisible, setPasswordVisible] = useState(false);
   return (
-    <View style={Object.assign({...Styles.Signin_container}, {minHeight: screenHeight})}>
+    <View
+      style={Object.assign(
+        {...Styles.Signin_container},
+        {minHeight: screenHeight},
+      )}>
       <View style={[Styles.SignIn_title]}>
         <Text style={[TextStyles.SignIn_titleText]}>Sign In</Text>
       </View>
@@ -22,10 +55,11 @@ const SignInComponent = () => {
           style={[Styles.SignIn_Input]}
           theme={{colors: {placeholder: 'lightgrey', text: 'white'}}}
           mode="outlined"
+          onChangeText={text => setEmail(text)}
           outlineColor="#2D2D2D"
-          
         />
         <TextInput
+          onChangeText={text => setPassword(text)}
           label="Password"
           style={[Styles.SignIn_Input]}
           theme={{colors: {placeholder: 'lightgrey', text: 'white'}}}
@@ -33,41 +67,41 @@ const SignInComponent = () => {
           outlineColor="#2D2D2D"
           secureTextEntry={!passwordVisible}
           right={
-            <TextInput.Icon 
-              name={passwordVisible ? "eye" : 'eye-off'}
-              color="lightgrey" 
-              size={14} 
+            <TextInput.Icon
+              name={passwordVisible ? 'eye' : 'eye-off'}
+              color="lightgrey"
+              size={14}
               onPress={() => setPasswordVisible(!passwordVisible)}
-            />}
-          />
-        <TouchableOpacity 
+            />
+          }
+        />
+        <TouchableOpacity
           style={{paddingHorizontal: 20, marginTop: 10}}
           onPress={() => navigation.navigate('ForgetPassword')}>
-          <Text style={[TextStyles.Yellow_Text]}>
-              Forget Password?
-          </Text>
+          <Text style={[TextStyles.Yellow_Text]}>Forget Password?</Text>
         </TouchableOpacity>
-        <TouchableOpacity 
+        <TouchableOpacity
           style={styles.signInButton}
-          onPress={() => {
-            navigation.dispatch(CommonActions.reset({
-              index: 0,
-              routes: [
-                {name: 'Home'}
-              ]
-            }))
-          }}>
+          onPress={submit}
+          // onPress={() => {
+          //   navigation.dispatch(CommonActions.reset({
+          //     index: 0,
+          //     routes: [
+          //       {name: 'Home'}
+          //     ]
+          //   }))
+          // }}
+        >
           <Text style={styles.signInLabel}>Sign In</Text>
         </TouchableOpacity>
         <View style={styles.row}>
           <Text style={styles.label}>New User?</Text>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('SignUp')}>
+          <TouchableOpacity onPress={() => navigation.navigate('SignUp')}>
             <Text style={styles.signUpLink}>Sign Up</Text>
           </TouchableOpacity>
         </View>
         <View style={[Styles.Footer]}>
-          <Text style={[TextStyles.Footer_text]}>Copyrights Reserved</Text>
+          <Text style={[TextStyles.Footer_text]}>Copyr Reserved</Text>
           <Text style={[TextStyles.Footer_text]}>Construction Flow</Text>
         </View>
       </View>
@@ -76,7 +110,6 @@ const SignInComponent = () => {
 };
 
 export default SignInComponent;
-
 
 const styles = StyleSheet.create({
   signInButton: {
@@ -89,7 +122,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     marginTop: 50,
-    borderRadius: 5
+    borderRadius: 5,
   },
   signInLabel: {
     fontSize: 17,
@@ -99,7 +132,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'center',
-    marginVertical: 20
+    marginVertical: 20,
   },
   label: {
     color: 'white',
@@ -108,6 +141,6 @@ const styles = StyleSheet.create({
   signUpLink: {
     color: '#ffb600',
     marginLeft: 10,
-    fontSize: 14
-  }
-})
+    fontSize: 14,
+  },
+});

@@ -19,13 +19,15 @@
  } from 'react-native';
  import StackNavigator from './Source/Navigation/StackNavigator';
  import StatusBar from './Source/Components/StatusBar';
- 
+//  import {Provider} from "react-redux"
+//  import store from './Source/redux/Store'
  const App = () => {
   global.URL="http://192.168.43.154:7000"
   global.AddToCart="http://192.168.43.154:7000/product/get_cart/23"
   
    return (
      <>
+     
        <StatusBar backgroundColor="#121417" barStyle="light-content" />
        <NavigationContainer>
          <StackNavigator />
