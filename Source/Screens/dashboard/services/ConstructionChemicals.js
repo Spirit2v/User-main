@@ -15,7 +15,7 @@ import Tiling from '../../../Assets/Icons/tiling.png';
 const ConstructionChemicals = ({navigation}) => {
   return (
     <>
-    <Header_Component Heading="Construction Chemicals" />
+  
     <ScrollView>
       <View style={Styles.Service_container}>
 

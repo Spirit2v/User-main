@@ -42,7 +42,7 @@ const ConstructionVehicles = ({navigation}) => {
   backgroundColor:'#121417'
   }}
   >
-      <Header_Component Heading="ConstructionVehicle" />
+     
     <ScrollView> 
        <View style={Styles.Service_container}>
   

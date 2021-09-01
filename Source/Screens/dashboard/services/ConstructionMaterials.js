@@ -24,7 +24,7 @@ import {ScrollView} from 'react-native-gesture-handler';
 const ConstructionMaterials = ({navigation}) => {
   return (
 <>
-    <Header_Component Heading="ConstructionMaterials" />
+    
     <ScrollView>
       <View style={Styles.Service_container}>
      

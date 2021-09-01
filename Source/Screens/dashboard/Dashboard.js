@@ -8,7 +8,9 @@ import Paint from './Paint';
 import Putty from './services/material/Putty';
 import Agents from './services/Agents';
 import { ScrollView } from 'react-native-gesture-handler';
-
+import ConstructionMaterial from './services/ConstructionMaterials'
+import ConstructionVehicles from './services/ConstructionVehicles';
+import ConstructionChemicals from './services/ConstructionChemicals';
 
 
 const Tab = createMaterialTopTabNavigator();
@@ -19,8 +21,8 @@ function LeadsTab() {
       sceneContainerStyle={{backgroundColor: Colors.darkgrey}}
       tabBarOptions={{
         scrollEnabled: true,
-        style: {backgroundColor: Colors.darkgrey,marginTop:0,height:43,width:'100%'},
-        labelStyle: {color: 'white', textTransform: 'none', fontSize: 20},
+        style: {backgroundColor: Colors.darkgrey,marginTop:-9,marginBottom:10,height:43,width:'100%'},
+        labelStyle: {color: 'white', textTransform: 'none', fontSize: 20,marginVertical:23},
         indicatorStyle: {
           backgroundColor: Colors.yellow,
           // width: 100,
@@ -34,8 +36,8 @@ function LeadsTab() {
 
       <Tab.Screen
         name="Paint"
-        component={Paint}
-        options={{title: 'Construction Material'}}
+        component={ConstructionMaterial}
+        options={{title: 'Material'}}
       />
        {/*   <Tab.Screen
         name="Paint"
@@ -54,21 +56,17 @@ function LeadsTab() {
       />
           <Tab.Screen
         name="ConstructionMaterial"
-        component={Agents}
-        options={{title: 'Construction Material'}}
+        component={ConstructionVehicles}
+        options={{title: 'Vehicle'}}
       />
           
           <Tab.Screen
         name="ConstructionVehicle"
-        component={Agents}
-        options={{title: 'Construction Vehicle'}}
+        component={ConstructionChemicals}
+        options={{title: 'Chemical'}}
       />
           
-            <Tab.Screen
-        name="Putty"
-        component={Putty}
-        options={{title: 'Putty'}}
-      />
+ 
     </Tab.Navigator>
   );
 }
@@ -77,9 +75,9 @@ export default class PaintAndPutty extends Component {
     return (
       <View style={styles.container}>
         <StatusBar backgroundColor={Colors.darkgrey} />
-
+        
         {LeadsTab()}
-        <View style={{height: 3}}></View>
+      
       </View>
     );
   }
