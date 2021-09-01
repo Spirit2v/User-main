@@ -3,7 +3,7 @@ import { View, Text } from 'react-native'
 
 export default function HomeCard() {
     return (<>
-        <View style={{padding: 25}}>
+        <View style={{padding: 25,marginTop:-132}}>
         <View
           style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View

@@ -35,9 +35,9 @@ export default class HomeScreen extends Component {
 
         <ScrollView
           style={{flex: 1, backgroundColor: '#121417', marginTop: -12}}>
-          {/* <Image height={23} source={CFCover} style={styles.headerImage} /> */}
+          <Image height={23} source={CFCover} style={styles.headerImage} />
           <View>
-            {/* <View
+            <View
               style={{padding: 10, paddingHorizontal: 23, marginBottom: 12}}>
               <Image
                 source={CFlogo}
@@ -49,11 +49,11 @@ export default class HomeScreen extends Component {
                   marginTop: 12,
                   color: 'white',
                   fontSize: 25,
-                  // fontWeight: 'bold',
-                  // justifyContent: 'center',
-                  // alignItems: 'center',
-                  // alignContent: 'center',
-                  // textAlign: 'center',
+                  fontWeight: 'bold',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignContent: 'center',
+                  textAlign: 'center',
                 }}>
                 Welcome to ConstructionFlow
               </Text>
@@ -61,10 +61,9 @@ export default class HomeScreen extends Component {
               <Text style={{color: 'white', marginVertical: 6}}>
                 Can’t find your product in market?
               </Text>
-              
+
               <Text style={{color: 'white', marginBottom: 32}}>
-             Surely you’ll find here with
-                best price and great quality.
+                Surely you’ll find here with best price and great quality.
               </Text>
               <Buttonq1 hi={43} wi={123} title="About us" />
             </View>
@@ -87,7 +86,7 @@ export default class HomeScreen extends Component {
                 flexDirection: 'row',
                 justifyContent: 'space-between',
                 paddingHorizontal: 22,
-                marginVertical:12
+                marginVertical: 12,
               }}>
               <View style={styles.circle}>
                 <Text style={{color: '#FFB600'}}>100%</Text>
@@ -124,10 +123,11 @@ export default class HomeScreen extends Component {
               </View>
             </View>
             <View
-            
-            style=
-            {{borderColor:'white',marginVertical:32,borderWidth:.2}}
-            ></View>
+              style={{
+                borderColor: 'white',
+                marginVertical: 32,
+                borderWidth: 0.2,
+              }}></View>
             <View style={{paddingHorizontal: 23}}>
               <Text
                 style={{
@@ -149,18 +149,37 @@ export default class HomeScreen extends Component {
               </Text>
             </View>
 
-<View>
-
-
-</View>
+            <View></View>
             <View>
               {/* <UnitConvertorComponent /> */}
-            {/* <View style={{height: 134}}></View> */}
-            {/* <RecentConversionComponent /> */}
-            {/* <LeadComponent navigation={this.props.navigation} /> */}
-            {/* </View>
-             */}
-<HomeCard />
+              <View style={{height: 134}}></View>
+              {/* <RecentConversionComponent /> */}
+              {/* <LeadComponent navigation={this.props.navigation} /> */}
+            </View>
+
+            <HomeCard />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingHorizontal: 12,
+              }}>
+              <Text style={{color: 'white'}}>Blog & News</Text>
+              <Text style={{color: '#FFB600'}}>See all</Text>
+            </View>
+            <View style={{height: 56}}></View>
+            <View
+            style={{flexDirection:'row'}}
+            >
+              <Text
+              style={{color:'grey'}}
+              >Any question ?     </Text>
+              <Text
+                    style={{color:'#FFB600'}}> Contact us here</Text>
+            </View>
+            <View>
+<Text>Icon</Text>
+            </View>
           </View>
         </ScrollView>
       </>
