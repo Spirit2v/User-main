@@ -93,7 +93,7 @@ const Profile = ({navigation}) => {
           <View
             style={{
               height: 47,
-              width: '45%',
+              width: '41%',
               backgroundColor: 'grey',
               marginHorizontal: 14,
               justifyContent: 'center',

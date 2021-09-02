@@ -8,7 +8,7 @@ import ProfileInput from '../../Components/ProfileInput';
 import Button from '../../Components/Button';
 import {ScrollView} from 'react-native-gesture-handler';
 import axios from 'axios';
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
 const Profile_Details = ({navigation, percentage = 0}) => {
   const submitx = () => {
     setFormData({
@@ -57,8 +57,8 @@ const Profile_Details = ({navigation, percentage = 0}) => {
             placeholder="Email ID"
             onChangeText={text => setEmail(text)}
           />
-          <View style={{justifyContent: 'space-between'}}>
-            <View>
+          <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+            <View style={{width: '47%'}}>
               <Text style={{color: 'grey', marginVertical: 12}}>
                 Phone Number
               </Text>
@@ -67,8 +67,7 @@ const Profile_Details = ({navigation, percentage = 0}) => {
                 onChangeText={text => setPhone(text)}
               />
             </View>
-            <View>
-              {' '}
+            <View style={{width: '48%'}}>
               <Text style={{color: 'grey', marginVertical: 12}}>
                 Whatsapp Number
               </Text>
@@ -78,34 +77,76 @@ const Profile_Details = ({navigation, percentage = 0}) => {
               />
             </View>
           </View>
-
-          <ProfileInput
-            placeholder="Password"
-            onChangeText={text => setPassword(text)}
-          />
+        </View>
+        <View>
           <View
             style={{
-              flexDirection: 'row',
-              marginTop: 50,
-              justifyContent: 'space-between',
-              width: 152,
-
-              alignSelf: 'center',
+              height: 65,
+              justifyContent: 'center',
+              padding: 13,
+              borderBottomColor: 'grey',
+              borderBottomWidth: 0.3,
+              marginBottom: 23,
             }}>
-            <Button
-              title="Save"
-              onPress={submitx}
-              style={{height: 40, width: 70}}
-              textStyle={{color: Colors.blackBlue}}
+            <Text style={{color: 'white'}}>Security setting</Text>
+          </View>
+
+          <View style={{paddingHorizontal: 22}}>
+            <View
+            style={{flexDirection:'row'}}
+            > 
+            <View
+            style={{width:'77%'}}
+            >
+              <ProfileInput
+              placeholder="Password"
+              onChangeText={text => setPassword(text)}
             />
-            <Button
-              title="Next"
-              style={Styles.Next}
-              textStyle={{color: Colors.yellow}}
-              onPress={() =>
-                navigation.navigate('Company_Details', {percentage: 33})
-              }
-            />
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: '#FFB600',
+                height: 52,
+                width:62,
+
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius:4,
+                marginTop:6
+                ,marginLeft:9
+              }}>
+              <Ionicons name="pencil-outline" size={18} color="black" />
+              <Text style={{marginLeft: -11, color: 'black'}}>_</Text>
+            </View></View>
+           
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 50,
+                justifyContent: 'space-between',
+              
+                alignSelf: 'center',
+              }}>
+          <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: '#FFB600',
+                height: 52,
+                width:'100%',
+
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius:4,
+                marginTop:6
+                ,marginLeft:9
+              }}>
+              <Ionicons name="pencil-outline" size={18} color="black" />
+              <Text style={{marginLeft: -11, color: 'black'}}>_</Text>
+              <Text style={{color: 'black'}}>   Edit detail</Text>
+            </View>
+              
+            </View>
           </View>
         </View>
       </View>
