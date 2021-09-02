@@ -1,4 +1,5 @@
 import React, {Component, useState} from 'react';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import {
   View,
   ScrollView,
@@ -13,6 +14,9 @@ import {
 
 import headerImage from '../../Assets/Images/HomeWall.png';
 import CFCover from '../../Assets/Images/cover.jpg';
+import blog from '../../Assets/Images/blog.jpg';
+import blog1 from '../../Assets/Images/blog1.jpg';
+import blog2 from '../../Assets/Images/blog2.jpg';
 import CFlogo from '../../Assets/Icons/CFlogo.png';
 import CheckBox from 'react-native-check-box';
 
@@ -24,10 +28,12 @@ import HomeHeader from '../../Components/HomeHeader';
 import {useNavigation} from '@react-navigation/native';
 import Buttonq1 from '../../Components/Buttonq1';
 import HomeCard from '../../Components/HomeCard';
+import {ImageBackground} from 'react-native';
+
 export default class HomeScreen extends Component {
   render() {
     // let {dropDownVisible} = this.state;
-
+    const {navigation} = this.props;
     let array = new Array(1, 2, 3, 4, 5, 6, 7);
     return (
       <>
@@ -50,10 +56,7 @@ export default class HomeScreen extends Component {
                   color: 'white',
                   fontSize: 25,
                   fontWeight: 'bold',
-                  justifyContent: 'center',
-                  alignItems: 'center',
-                  alignContent: 'center',
-                  textAlign: 'center',
+                 
                 }}>
                 Welcome to ConstructionFlow
               </Text>
@@ -65,7 +68,11 @@ export default class HomeScreen extends Component {
               <Text style={{color: 'white', marginBottom: 32}}>
                 Surely you’ll find here with best price and great quality.
               </Text>
-              <Buttonq1 hi={43} wi={123} title="About us" />
+              <TouchableOpacity
+              onPress={()=>navigation.navigate('About_Us')}
+              >
+              <Buttonq1 hi={43} wi={123} title="About Us" />
+              </TouchableOpacity>
             </View>
             <View
               style={{
@@ -162,23 +169,83 @@ export default class HomeScreen extends Component {
               style={{
                 flexDirection: 'row',
                 justifyContent: 'space-between',
-                paddingHorizontal: 12,
+                paddingHorizontal: 22,
               }}>
               <Text style={{color: 'white'}}>Blog & News</Text>
               <Text style={{color: '#FFB600'}}>See all</Text>
             </View>
-            <View style={{height: 56}}></View>
+          </View>
+
+          <ScrollView
+            horizontal={true}
+            style={{paddingLeft: 23, marginVertical: 22}}>
             <View
-            style={{flexDirection:'row'}}
-            >
-              <Text
-              style={{color:'grey'}}
-              >Any question ?     </Text>
-              <Text
-                    style={{color:'#FFB600'}}> Contact us here</Text>
+              style={{
+                justifyContent: 'space-between',
+                flexDirection: 'row',
+                alignContent: 'space-between',
+                alignItems: 'stretch',
+              }}>
+              <ImageBackground
+                source={blog}
+                resizeMode="cover"
+                style={styles.Imagetext}>
+                <View style={{justifyContent: 'flex-end'}}>
+                  <Text style={{color: 'white'}}>Blog</Text>
+
+                  <Text style={{color: '#FFB600'}}>Read More</Text>
+                </View>
+              </ImageBackground>
+
+              <ImageBackground
+                source={blog1}
+                resizeMode="cover"
+                style={styles.Imagetext}>
+                <Text style={{color: 'white'}}>Blog</Text>
+                <Text style={{color: '#FFB600'}}>Read More</Text>
+              </ImageBackground>
+              <ImageBackground
+                source={blog2}
+                resizeMode="cover"
+                style={styles.Imagetext}>
+                <Text style={{color: 'white'}}>Blog</Text>
+                <Text style={{color: '#FFB600'}}>Read More</Text>
+              </ImageBackground>
             </View>
-            <View>
-<Text>Icon</Text>
+          </ScrollView>
+          <View>
+            <View style={{flexDirection: 'row', paddingHorizontal: 22}}>
+              <Text style={{color: 'grey'}}>Any question ? </Text>
+              <Text style={{color: '#FFB600'}}> Contact us here</Text>
+            </View>
+            <View
+              style={{
+                flexDirection: 'row',
+                paddingHorizontal: 22,
+                marginTop: 23,
+                marginBottom: 12,
+              }}>
+            
+
+            <TouchableOpacity
+                style={{marginHorizontal: 10}}>
+                  <Ionicons name="logo-facebook" size={22} color="#ffb600" />
+                </TouchableOpacity>
+              
+              <TouchableOpacity
+             style={{marginHorizontal: 10}}>
+               <Ionicons name="logo-instagram" size={22} color="#ffb600" />
+             </TouchableOpacity>
+              <TouchableOpacity
+                style={{marginHorizontal: 10}}>
+                  <Ionicons name="logo-twitter" size={22} color="#ffb600" />
+                  </TouchableOpacity>
+              <TouchableOpacity
+                style={{marginHorizontal: 10}}>
+                <Ionicons name="logo-linkedin" size={22} color="#ffb600" />
+                </TouchableOpacity>
+           
+           
             </View>
           </View>
         </ScrollView>
@@ -195,7 +262,7 @@ const styles = StyleSheet.create({
   },
   headerImage: {
     height: 270,
-    width: 470,
+    width: '100%',
     resizeMode: 'stretch',
   },
   contentContainer: {
@@ -213,5 +280,12 @@ const styles = StyleSheet.create({
     borderRadius: 36,
     // paddingTop: 15,
     margin: 12,
+  },
+  Imagetext: {
+    height: 123,
+    width: 350,
+    marginRight: 22,
+    paddingHorizontal: 22,
+    paddingTop: 69,
   },
 });

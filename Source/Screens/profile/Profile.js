@@ -18,23 +18,32 @@ import Company_Details from './Company_Details';
 import Company_Address from './Company_Address';
 import Site_AddressBook from './Site_AddressBook';
 import Help from './Help';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 import About_Us from './About_Us';
 import Feedback from './Feedback';
 import {CommonActions} from '@react-navigation/native';
+import Buttonq1 from '../../Components/Buttonq1';
+import Buttonq from '../../Components/Buttonq';
+import ProfileButton from '../../Components/ProfileButton';
+import SocialIcons from '../../Components/SocialIcons';
 
 const Profile = ({navigation}) => {
   return (
     <ScrollView style={Styles.Profile_container}>
-      <View style={Styles.Profile_Head}>
-        <View style={{flexDirection: 'row', alignItems: 'center'}}>
-          <Text style={[TextStyles.White_text, {width: 230}]}>
+      <View
+        style={{
+          alignItems: 'center',
+          justifyContent: 'center',
+          marginVertical: 23,
+          // paddingHorizontal:'50%'
+        }}>
+        {/* <Text style={[TextStyles.White_text, {width: 230}]}>
             Please complete your Profile by adding remaining information.
           </Text>
-          <Arrow_button />
-        </View>
+          <Arrow_button /> */}
         <AnimatedCircularProgress
           style={Styles.CircularProgressBar}
-          size={70}
+          size={90}
           width={6}
           fill={40}
           tintColor={Colors.yellow}
@@ -47,8 +56,132 @@ const Profile = ({navigation}) => {
             </Text>
           )}
         />
+
+        <Text style={{color: 'white', fontSize: 18, marginVertical: 20}}>
+          Customer name
+        </Text>
+        <Buttonq1 title="Customer" hi={30} wi={94} />
       </View>
-      <View style={{flex: 1, paddingHorizontal: 20, marginBottom: 10}}>
+      <View>
+        <View
+          style={{
+            flexDirection: 'row',
+            // justifyContent: 'space-between',
+            marginVertical: 23,
+          }}>
+          <View>
+            <Text style={{color: 'grey', marginHorizontal: 24}}>Phone</Text>
+            <Text style={{color: 'white', marginHorizontal: 24}}>
+              4646416164
+            </Text>
+          </View>
+          <View>
+            <Text style={{color: 'grey', marginHorizontal: 24}}>Whatsapp</Text>
+            <Text style={{color: 'white', marginHorizontal: 24}}>
+              954924745
+            </Text>
+          </View>
+          <View>
+            <Text style={{color: 'grey', marginHorizontal: 24}}>Email</Text>
+            <Text style={{color: 'white', marginHorizontal: 24}}>
+              uyfi@hg.gu
+            </Text>
+          </View>
+        </View>
+
+        <View style={{paddingHorizontal: 22, flexDirection: 'row'}}>
+          <View
+            style={{
+              height: 47,
+              width: '45%',
+              backgroundColor: 'grey',
+              marginHorizontal: 14,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 4,
+              flexDirection:'row'
+            }}>
+              <Ionicons name='help-circle-outline' size={18} color='white'/>
+
+            <Text style={{color: 'white',marginLeft:7}}>Help</Text>
+          </View>
+          <View style={{             height: 47,
+                      height: 47,
+                      width: '45%',
+                      backgroundColor: 'grey',
+                      marginHorizontal: 14,
+                      justifyContent: 'center',
+                      alignItems: 'center',
+                      borderRadius: 4,
+                      flexDirection:'row'}}>
+                <Ionicons name='chatbox-outline' size={18} color='white'/>
+            <Text style={{color: 'white',marginLeft:7}}>Feedback</Text>
+          </View>
+          <View></View>
+        </View>
+
+        <View
+          style={{
+            height: 170,
+            backgroundColor: 'black',
+            marginVertical: 23,
+
+            paddingHorizontal: 22,
+            justifyContent: 'space-between',
+            paddingVertical: 23,
+          }}>
+          <Text style={{color: 'white', fontSize: 18}}>
+            Complete your profile
+          </Text>
+          <Text style={{color: 'grey'}}>
+            complete your profile complete your profile complete your profile
+            complete your profile complete your
+          </Text>
+          <Buttonq1 hi={44} wi={139} title="Complete profile" />
+        </View>
+
+        <View style={{paddingHorizontal: 22}}>
+          <Text style={{color: 'grey', marginVertical: 22}}>
+            Account Setting
+          </Text>
+          <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Profile_Details');
+          }}>
+          <ProfileButton text="Personal Details" icon="save-outline" />
+          </TouchableOpacity>
+          <ProfileButton text="Company Details" icon="save-outline" />
+          <ProfileButton text="Company Address" icon="save-outline" />
+          <ProfileButton text="Address Book" icon="save-outline" />
+
+          <View
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'space-between',
+              marginTop: 34,
+            }}>
+            <View>
+              <Text style={{color: 'white'}}>Any questions?</Text>
+              <Text style={{color: '#FFB600'}}>Contact us here</Text>
+              <SocialIcons />
+            </View>
+            <View
+              style={{
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'center',
+                alignSelf: 'center',
+              }}>
+              <Buttonq wi={116} hi={45} title="Logout" />
+            </View>
+          </View>
+        </View>
+
+        {/* </View>
+    
+      </View>
+      <View style={{flex: 1, paddingHorizontal: 20, 
+        marginBottom: 0}}>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Profile_Details');
@@ -105,7 +238,7 @@ const Profile = ({navigation}) => {
             );
           }}>
           <Profile_card1 title="Logout" />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
       </View>
     </ScrollView>
   );
