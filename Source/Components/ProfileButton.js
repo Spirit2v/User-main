@@ -29,11 +29,8 @@ style={{color:'white',marginLeft:7}}
 
       </View>
       <View>
-          <Text
-          style=
-          
-          {{color:'white',fontSize:23}}
-          >></Text>
+        
+      <Ionicons name='chevron-forward-outline' size={18} color='white' />
       </View>
     </View>
   );

@@ -113,7 +113,7 @@ const Profile_Details = ({navigation, percentage = 0}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius:4,
-                marginTop:6
+                marginTop:8
                 ,marginLeft:9
               }}>
               <Ionicons name="pencil-outline" size={18} color="black" />
@@ -138,7 +138,7 @@ const Profile_Details = ({navigation, percentage = 0}) => {
                 justifyContent: 'center',
                 alignItems: 'center',
                 borderRadius:4,
-                marginTop:6
+                marginTop:-26
                 ,marginLeft:9
               }}>
               <Ionicons name="pencil-outline" size={18} color="black" />

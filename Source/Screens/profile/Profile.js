@@ -68,6 +68,7 @@ const Profile = ({navigation}) => {
             flexDirection: 'row',
             // justifyContent: 'space-between',
             marginVertical: 23,
+            marginLeft:12
           }}>
           <View>
             <Text style={{color: 'grey', marginHorizontal: 24}}>Phone</Text>
@@ -122,13 +123,13 @@ const Profile = ({navigation}) => {
 
         <View
           style={{
-            height: 170,
+            height: 230,
             backgroundColor: 'black',
             marginVertical: 23,
 
             paddingHorizontal: 22,
             justifyContent: 'space-between',
-            paddingVertical: 23,
+            paddingVertical: 37,
           }}>
           <Text style={{color: 'white', fontSize: 18}}>
             Complete your profile
@@ -150,10 +151,26 @@ const Profile = ({navigation}) => {
           }}>
           <ProfileButton text="Personal Details" icon="save-outline" />
           </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Company_Details', {percentage: 33})
+          }>
           <ProfileButton text="Company Details" icon="save-outline" />
+          </TouchableOpacity>
+         
+         
+          <TouchableOpacity
+          onPress={() =>
+            navigation.navigate('Company_Address', {percentage: 66})
+          }>
           <ProfileButton text="Company Address" icon="save-outline" />
+          </TouchableOpacity>
+          <TouchableOpacity
+          onPress={() => {
+            navigation.navigate('Site_AddressBook',{percentage: 90});
+          }}>
           <ProfileButton text="Address Book" icon="save-outline" />
-
+          </TouchableOpacity>
           <View
             style={{
               flexDirection: 'row',

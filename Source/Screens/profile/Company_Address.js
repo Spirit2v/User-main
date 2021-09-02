@@ -4,107 +4,123 @@ import Styles from '../../Assets/Styles/Styles';
 import Header_Component from '../../Components/Header_Component';
 import ProgressBar from 'react-native-progress/Bar';
 import Colors from '../../Utils/Colors';
-import Profile_TextinputCard from '../../Components/Profile_TextinputCard';
+import ProfileInput from '../../Components/ProfileInput';
 import Button from '../../Components/Button';
 import {ScrollView} from 'react-native-gesture-handler';
 import axios from 'axios';
-const Company_Address = ({navigation, route}) => {
-  let {percentage} = route.params;
-
+import Ionicons from 'react-native-vector-icons/Ionicons';
+const Company_Address = ({navigation, percentage = 0}) => {
   const submitx = () => {
     setFormData({
-      company_building_name: building,
-      company_street: area,
-      company_city: city,
-      company_pincode: pin,
-      company_house_no: house_door,
-      company_landmark: landmark,
-      company_state: state,
+      first_name: name,
+      phone_no: phone,
+      email: email,
+      whatsapp_no: wpp,
     });
     axios
-      .post(`http://192.168.156.104:7000/user/updateUser/67`, formData)
+      .post(`http://192.168.254.103:7000/user/updateUser/67`, formData)
       .then(response => {
         console.log(response);
-        alert('Company Address Saved');
+        alert('Saved');
       });
   };
-const [formData, setFormData] = useState('')
-  const [userId, setUserId] = useState('');
-  const [building, setBuilding] = useState('');
-  const [area, setArea] = useState('');
-  const [city, setCity] = useState('');
-  const [pin, setPin] = useState('');
-  const [house_door, setHouse] = useState('');
-  const [landmark, setLandmark] = useState('');
-  const [state, setState] = useState('');
+  const [formData, setFormData] = useState('');
 
+  const [name, setname] = useState('');
+  const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [wpp, setWhatsapp] = useState('');
+  const [password, setPassword] = useState('');
   return (
     <ScrollView>
       <View style={Styles.ProfileDetails_container}>
-        <Text
-          style={{
-            color: 'white',
-            alignSelf: 'flex-start',
-          }}>{`${percentage}% completed`}</Text>
-        <ProgressBar
-          unfilledColor="#6d6e70"
-          color={Colors.yellow}
-          progress={0.3}
-          width={369}
-          height={8}
-          borderWidth={0}
-          style={{marginVertical: 10}}
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setBuilding(text)}
-          placeholder="Building Name"
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setHouse(text)}
-          placeholder="H.No./Door No."
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setArea(text)}
-          placeholder="Area/Street"
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setLandmark(text)}
-          placeholder="Landmark"
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setCity(text)}
-          placeholder="City"
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setState(text)}
-          placeholder="State"
-        />
-        <Profile_TextinputCard
-          onChangeText={text => setPin(text)}
-          placeholder="Pincode"
-        />
         <View
           style={{
-            flexDirection: 'row',
-            marginTop: 30,
-            justifyContent: 'space-between',
-            width: 152,
-
-            alignSelf: 'center',
+            height: 65,
+            justifyContent: 'center',
+            padding: 13,
+            borderBottomColor: 'grey',
+            borderBottomWidth: 0.3,
+            marginBottom: 23,
           }}>
-          <Button
-            title="Save"
-            onPress={submitx}
-            style={{height: 40, width: 70}}
+          <Text style={{color: 'white'}}>Address</Text>
+        </View>
+        <View style={{paddingHorizontal: 22}}>
+          <Text style={{color: 'grey'}}>Building Name</Text>
+
+          <ProfileInput
+            placeholder="Building Name"
+            onChangeText={text => setname(text)}
           />
-          <Button
-            title="Next"
-            style={Styles.Next}
-            textStyle={{color: Colors.yellow}}
-            onPress={() =>
-              navigation.navigate('Site_AddressBook', {percentage: 96})
-            }
+          <Text style={{color: 'grey', marginVertical: 12}}>Area/Street</Text>
+          <ProfileInput
+            placeholder="Area/Street"
+            onChangeText={text => setEmail(text)}
           />
+
+<Text style={{color: 'grey', marginVertical: 12}}>House no/Door no.</Text>
+          <ProfileInput
+            placeholder="House no/Door no."
+            onChangeText={text => setEmail(text)}
+          />
+          <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
+            <View style={{width: '47%'}}>
+              <Text style={{color: 'grey', marginVertical: 12}}>
+                City
+              </Text>
+              <ProfileInput
+                placeholder="City"
+                onChangeText={text => setPhone(text)}
+              />
+            </View>
+            <View style={{width: '48%'}}>
+              <Text style={{color: 'grey', marginVertical: 12}}>
+               Pin Code
+              </Text>
+              <ProfileInput
+                onChangeText={text => setWhatsapp(text)}
+                placeholder="  Pin Code"
+              />
+            </View>
+          </View>
+        </View>
+        <View>
+   
+
+          <View style={{paddingHorizontal: 22}}>
+          <Text style={{color: 'grey', marginVertical: 12}}>State</Text>
+          <ProfileInput
+            placeholder="State"
+            onChangeText={text => setEmail(text)}
+          />
+            <View
+              style={{
+                flexDirection: 'row',
+                marginTop: 50,
+                justifyContent: 'space-between',
+              
+                alignSelf: 'center',
+              }}>
+          <View
+              style={{
+                flexDirection: 'row',
+                backgroundColor: '#FFB600',
+                height: 52,
+                width:'100%',
+
+                justifyContent: 'center',
+                alignItems: 'center',
+                borderRadius:4,
+                marginTop:-26
+                ,marginLeft:9
+              }}>
+              <Ionicons name="pencil-outline" size={18} color="black" />
+              <Text style={{marginLeft: -11, color: 'black'}}>_</Text>
+              <Text style={{color: 'black'}}>   Edit detail</Text>
+            </View>
+              
+            </View>
+          </View>
         </View>
       </View>
     </ScrollView>
