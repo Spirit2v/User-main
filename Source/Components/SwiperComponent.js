@@ -1,13 +1,43 @@
 import React from 'react'
 import { View, Text ,StyleSheet, ImageBackground} from 'react-native'
 import Swiper from 'react-native-swiper'
+import { height } from 'styled-system'
 import CFCover from '../Assets/Images/cover.jpg'
 import CFCover1 from '../Assets/Images/cover2.jpg'
 export default function SwiperComponent() {
     return (
         <Swiper style={styles.wrapper} 
-        
-        showsButtons={true}>
+        // paginationStyle={}
+        showsPagination={true}
+
+        dot={
+            <View
+              style={{
+     width:12
+     ,height:4,
+     backgroundColor:'white',
+     borderRadius:9,marginHorizontal:6,
+     top:62
+              }}
+            />
+          }
+          activeDot={
+            <View
+              style={{
+                width:26
+                ,height:4,
+                backgroundColor:'#FFB600',
+                borderRadius:9,marginHorizontal:6,
+                top:62
+              }}
+            />
+          }
+          paginationStyle={{
+            bottom: 70
+          }}
+          loop={false}
+
+        >
           
           <View
           sty={{height:100,width:'100%'}}
@@ -17,7 +47,7 @@ export default function SwiperComponent() {
             source={CFCover}
             style={{height:300,width:'100%'}}
           >
-               <View style={{marginTop: 158,paddingLeft:52}}>
+               <View style={{marginTop: 158,paddingLeft:22}}>
                   <Text style={{color: 'white', fontSize: 18}}>
                     Best deals!
                   </Text>
