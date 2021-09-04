@@ -9,9 +9,7 @@ import {
   TextInput,
   FlatList,
 } from 'react-native';
-
 // import headerImage from '../Assets/Icons/HeaderIcon.png'
-
 import headerImage from '../../Assets/Images/HomeWall.png';
 import CFCover from '../../Assets/Images/cover.jpg';
 import blog from '../../Assets/Images/blog.jpg';
@@ -19,7 +17,6 @@ import blog1 from '../../Assets/Images/blog1.jpg';
 import blog2 from '../../Assets/Images/blog2.jpg';
 import CFlogo from '../../Assets/Icons/CFlogo.png';
 import CheckBox from 'react-native-check-box';
-
 import RecentConversionComponent from '../../Components/RecentConversionComponent';
 import LeadComponent from '../../Components/LeadComponent';
 import UnitConvertorComponent from '../../Components/UnitConvertorComponent';
@@ -29,6 +26,7 @@ import {useNavigation} from '@react-navigation/native';
 import Buttonq1 from '../../Components/Buttonq1';
 import HomeCard from '../../Components/HomeCard';
 import {ImageBackground} from 'react-native';
+import SwiperComponent from '../../Components/SwiperComponent';
 
 export default class HomeScreen extends Component {
   render() {
@@ -40,15 +38,21 @@ export default class HomeScreen extends Component {
         <HomeHeader />
 
         <ScrollView
+          showsVerticalScrollIndicator={false}
+          showsHorizontalScrollIndicator={false}
           style={{flex: 1, backgroundColor: '#121417', marginTop: -12}}>
-          <Image height={23} source={CFCover} style={styles.headerImage} />
+            <SwiperComponent />
           <View>
             <View
-              style={{padding: 10, paddingHorizontal: 23, marginBottom: 12}}>
+              style={{padding: 10, paddingHorizontal: 23, marginBottom: 12}}
+              
+              >
               <Image
                 source={CFlogo}
-                style={{marginVertical: 20, height: 40, width: '40%'}}
-              />
+                style={{marginVertical: 20, height: 40, width: '40%'}}>
+             
+              </Image>
+           
               <Text style={{color: '#FFB600'}}>We are here to help you.</Text>
               <Text
                 style={{
@@ -56,7 +60,6 @@ export default class HomeScreen extends Component {
                   color: 'white',
                   fontSize: 25,
                   fontWeight: 'bold',
-                 
                 }}>
                 Welcome to ConstructionFlow
               </Text>
@@ -68,10 +71,8 @@ export default class HomeScreen extends Component {
               <Text style={{color: 'white', marginBottom: 32}}>
                 Surely you’ll find here with best price and great quality.
               </Text>
-              <TouchableOpacity
-              onPress={()=>navigation.navigate('About_Us')}
-              >
-              <Buttonq1 hi={43} wi={123} title="About Us" />
+              <TouchableOpacity onPress={() => navigation.navigate('About_Us')}>
+                <Buttonq1 hi={43} wi={123} title="About Us" />
               </TouchableOpacity>
             </View>
             <View
@@ -178,6 +179,8 @@ export default class HomeScreen extends Component {
 
           <ScrollView
             horizontal={true}
+            showsVerticalScrollIndicator={false}
+            showsHorizontalScrollIndicator={false}
             style={{paddingLeft: 23, marginVertical: 22}}>
             <View
               style={{
@@ -225,27 +228,19 @@ export default class HomeScreen extends Component {
                 marginTop: 23,
                 marginBottom: 12,
               }}>
-            
+              <TouchableOpacity style={{marginHorizontal: 10}}>
+                <Ionicons name="logo-facebook" size={22} color="#ffb600" />
+              </TouchableOpacity>
 
-            <TouchableOpacity
-                style={{marginHorizontal: 10}}>
-                  <Ionicons name="logo-facebook" size={22} color="#ffb600" />
-                </TouchableOpacity>
-              
-              <TouchableOpacity
-             style={{marginHorizontal: 10}}>
-               <Ionicons name="logo-instagram" size={22} color="#ffb600" />
-             </TouchableOpacity>
-              <TouchableOpacity
-                style={{marginHorizontal: 10}}>
-                  <Ionicons name="logo-twitter" size={22} color="#ffb600" />
-                  </TouchableOpacity>
-              <TouchableOpacity
-                style={{marginHorizontal: 10}}>
+              <TouchableOpacity style={{marginHorizontal: 10}}>
+                <Ionicons name="logo-instagram" size={22} color="#ffb600" />
+              </TouchableOpacity>
+              <TouchableOpacity style={{marginHorizontal: 10}}>
+                <Ionicons name="logo-twitter" size={22} color="#ffb600" />
+              </TouchableOpacity>
+              <TouchableOpacity style={{marginHorizontal: 10}}>
                 <Ionicons name="logo-linkedin" size={22} color="#ffb600" />
-                </TouchableOpacity>
-           
-           
+              </TouchableOpacity>
             </View>
           </View>
         </ScrollView>

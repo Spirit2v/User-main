@@ -56,10 +56,17 @@ const Profile = ({navigation}) => {
             </Text>
           )}
         />
-
-        <Text style={{color: 'white', fontSize: 18, marginVertical: 20}}>
-          Customer name
-        </Text>
+        <View
+        style={{flexDirection:'row',marginVertical:22}}
+        >
+          <Text style={{color: 'white', fontSize: 18}}>Customer name</Text>
+         
+         <View
+        style={{marginTop:3,marginLeft:6}}
+        >
+          <Ionicons name="checkmark-circle" size={22} color="grey" />
+          </View>
+        </View>
         <Buttonq1 title="Customer" hi={30} wi={94} />
       </View>
       <View>
@@ -68,7 +75,7 @@ const Profile = ({navigation}) => {
             flexDirection: 'row',
             // justifyContent: 'space-between',
             marginVertical: 23,
-            marginLeft:12
+            marginLeft: 12,
           }}>
           <View>
             <Text style={{color: 'grey', marginHorizontal: 24}}>Phone</Text>
@@ -100,23 +107,26 @@ const Profile = ({navigation}) => {
               justifyContent: 'center',
               alignItems: 'center',
               borderRadius: 4,
-              flexDirection:'row'
+              flexDirection: 'row',
             }}>
-              <Ionicons name='help-circle-outline' size={18} color='white'/>
+            <Ionicons name="help-circle-outline" size={18} color="white" />
 
-            <Text style={{color: 'white',marginLeft:7}}>Help</Text>
+            <Text style={{color: 'white', marginLeft: 7}}>Help</Text>
           </View>
-          <View style={{             height: 47,
-                      height: 47,
-                      width: '45%',
-                      backgroundColor: 'grey',
-                      marginHorizontal: 14,
-                      justifyContent: 'center',
-                      alignItems: 'center',
-                      borderRadius: 4,
-                      flexDirection:'row'}}>
-                <Ionicons name='chatbox-outline' size={18} color='white'/>
-            <Text style={{color: 'white',marginLeft:7}}>Feedback</Text>
+          <View
+            style={{
+              height: 47,
+              height: 47,
+              width: '45%',
+              backgroundColor: 'grey',
+              marginHorizontal: 14,
+              justifyContent: 'center',
+              alignItems: 'center',
+              borderRadius: 4,
+              flexDirection: 'row',
+            }}>
+            <Ionicons name="chatbox-outline" size={18} color="white" />
+            <Text style={{color: 'white', marginLeft: 7}}>Feedback</Text>
           </View>
           <View></View>
         </View>
@@ -146,30 +156,29 @@ const Profile = ({navigation}) => {
             Account Setting
           </Text>
           <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Profile_Details');
-          }}>
-          <ProfileButton text="Personal Details" icon="save-outline" />
+            onPress={() => {
+              navigation.navigate('Profile_Details');
+            }}>
+            <ProfileButton text="Personal Details" icon="save-outline" />
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Company_Details', {percentage: 33})
-          }>
-          <ProfileButton text="Company Details" icon="save-outline" />
+            onPress={() =>
+              navigation.navigate('Company_Details', {percentage: 33})
+            }>
+            <ProfileButton text="Company Details" icon="save-outline" />
           </TouchableOpacity>
-         
-         
+
           <TouchableOpacity
-          onPress={() =>
-            navigation.navigate('Company_Address', {percentage: 66})
-          }>
-          <ProfileButton text="Company Address" icon="save-outline" />
+            onPress={() =>
+              navigation.navigate('Company_Address', {percentage: 66})
+            }>
+            <ProfileButton text="Company Address" icon="save-outline" />
           </TouchableOpacity>
           <TouchableOpacity
-          onPress={() => {
-            navigation.navigate('Site_AddressBook',{percentage: 90});
-          }}>
-          <ProfileButton text="Address Book" icon="save-outline" />
+            onPress={() => {
+              navigation.navigate('Site_AddressBook', {percentage: 90});
+            }}>
+            <ProfileButton text="Address Book" icon="save-outline" />
           </TouchableOpacity>
           <View
             style={{
