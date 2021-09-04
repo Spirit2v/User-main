@@ -201,7 +201,17 @@ const Profile = ({navigation}) => {
                 alignContent: 'center',
                 alignSelf: 'center',
               }}>
+                     <TouchableOpacity
+          onPress={() => {
+            navigation.dispatch(
+              CommonActions.reset({
+                index: 0,
+                routes: [{name: 'LandingScreen'}],
+              }),
+            );
+          }}>
               <Buttonq wi={116} hi={45} title="Logout" />
+            </TouchableOpacity>
             </View>
           </View>
         </View>

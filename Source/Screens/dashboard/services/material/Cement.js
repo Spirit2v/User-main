@@ -73,10 +73,15 @@ export default function Cement({navigation}) {
     });
   };
   return (
-    <ScrollView>
+    <ScrollView
+
+    >
       <View style={Styles.ProfileDetails_container}>
         <View style={{ paddingHorizontal: 7,marginTop:0}}></View>
-        <Text
+        <View
+        style={{paddingHorizontal:22}}
+        >        
+          <Text
         style={{color:'grey',marginTop:22,marginBottom:12}}>
         Select brands
 
@@ -112,9 +117,9 @@ export default function Cement({navigation}) {
         <Text style={{color: 'white'}}>{CementGrades}</Text>
         <Text style={{color: 'white'}}>{Quantity}</Text>
         <Text style={{color: 'white'}}>{formData.Quantity}</Text>
-        <TouchableOpacity onPress={submitx}>
+        {/* <TouchableOpacity onPress={submitx}>
           <Buttonq1 title="submit" hi={42} wi={78} />
-        </TouchableOpacity>
+        </TouchableOpacity> */}
 
         <View
           style={{
@@ -140,6 +145,8 @@ export default function Cement({navigation}) {
               wi={78}
             />
           </TouchableOpacity>
+          </View>
+
         </View>
       </View>
     </ScrollView>

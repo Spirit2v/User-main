@@ -10,7 +10,7 @@ export default function HomeCard({}) {
           style={{flexDirection: 'row', justifyContent: 'space-between'}}>
           <View
             style={{
-              height: 113,
+              height: 120,
               width: '50%',
               backgroundColor: 'grey',
               padding: 12,
@@ -63,8 +63,8 @@ export default function HomeCard({}) {
             }}>
             <View
               style={{
-                height: 113,
-                width: '50%',
+                height: 120,
+                width: '100%',
                 backgroundColor: 'grey',
                 padding: 7,
        
@@ -94,7 +94,7 @@ export default function HomeCard({}) {
                 <View></View>
               </View>
               <Text
-                style={{color: 'white', marginBottom: 20, marginTop: 6}}>
+                style={{color: 'white', marginBottom: 17, marginTop: 6}}>
              Agent
               </Text>
               <TouchableOpacity
@@ -118,7 +118,7 @@ export default function HomeCard({}) {
   style={{flexDirection: 'row', justifyContent: 'space-between'}}>
   <View
     style={{
-      height: 113,
+      height: 120,
       width: '46%',
       backgroundColor: 'grey',
       padding: 12,
@@ -168,8 +168,8 @@ export default function HomeCard({}) {
     }}>
     <View
       style={{
-        height: 113,
-        width: '50%',
+        height: 118,
+        width: '100%',
         backgroundColor: 'grey',
         padding: 7,
 
@@ -201,7 +201,7 @@ justifyContent:'center'
       </View>
       <Text
         style={{color: 'white', marginBottom: 0, marginTop: 6}}>
-     Constructio
+     Construction
       </Text>
       <Text
         style={{color: 'white', marginBottom: 9, marginTop: 0}}>

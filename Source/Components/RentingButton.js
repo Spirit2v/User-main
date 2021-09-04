@@ -64,8 +64,8 @@ export default function RentingButton({text,h,Callbackfunctio, value}) {
 }
 const styles=StyleSheet.create({
   checkboxBase: {
-    width: 24,
-    height: 24,
+    width: 22,
+    height: 22,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 4,
@@ -98,8 +98,8 @@ const styles=StyleSheet.create({
     borderWidth: 1,
   },
   wrap:{
-    height: 61,
-    borderRadius: 14,
+    height: 51,
+    borderRadius: 8,
     width: '100%',
     shadowColor: 'white',
 
@@ -114,7 +114,7 @@ const styles=StyleSheet.create({
     alignItems: 'flex-start',
     justifyContent: 'space-between',
     backgroundColor: 'black',
-    padding: 20,
+    padding: 12,
     borderColor: 'grey',
     flexDirection: 'row',
   }

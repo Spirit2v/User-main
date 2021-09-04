@@ -56,7 +56,8 @@ const [Quantity, setQuantity] = useState('')
     <View style={Styles.ProfileDetails_container}>
       <View style={{marginTop: 8, paddingHorizontal: 7}}>
         <View></View>
-
+<View
+style={{padding:22}}>
 
 
         <RentingButton
@@ -123,6 +124,7 @@ const [Quantity, setQuantity] = useState('')
               wi={78}
             />
           </TouchableOpacity>
+        </View>
         </View>
       </View>
     </View>

@@ -12,7 +12,7 @@ const Header_Component = ({Heading}) => {
     <View style={styles.Container}>
         
        <Text
-       style={{color:'#FFB600',fontSize:18}}
+       style={{color:'#FFB600',fontSize:18,fontWeight:'bold'}}
        >
 Home
        </Text>
@@ -96,5 +96,7 @@ const styles = StyleSheet.create({
     elevation: 5,
     alignItems: 'center',
     justifyContent: 'center',
+    marginRight:-10,
+    marginLeft:-1
   },
 });

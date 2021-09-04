@@ -55,7 +55,7 @@ const [formData, setFormData] = useState('')
   ];
   return (
     <View style={Styles.ProfileDetails_container}>
-      <View style={{ paddingHorizontal: 7}}>
+      <View style={{ paddingHorizontal: 20}}>
       <Text
         style={{color:'grey',marginTop:22,marginBottom:12}}>
         Select brands

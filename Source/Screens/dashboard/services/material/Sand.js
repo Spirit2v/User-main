@@ -75,7 +75,7 @@ export default function Sand({navigation}) {
 
   return (<ScrollView>
     <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 22, paddingHorizontal: 7}}>
+      <View style={{marginTop: 22, paddingHorizontal: 22}}>
         <View></View>
 
 

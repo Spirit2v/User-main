@@ -107,7 +107,7 @@ const [Quantity, setQuantity] = useState('')
 <ScrollView>
 
     <View style={Styles.ProfileDetails_container}>
-      <View style={{ paddingHorizontal: 7}}>
+      <View style={{ paddingHorizontal: 22}}>
         {/* <Text>{TMTsteel}{Quantity}</Text>{} */}
 
         <Text

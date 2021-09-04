@@ -79,7 +79,7 @@ export default function RMCmixture({navigation}) {
 
   return (
     <View style={Styles.ProfileDetails_container}>
-      <View style={{ paddingHorizontal: 7}}>
+      <View style={{ paddingHorizontal: 22}}>
       <Text
         style={{color:'grey',marginTop:22,marginBottom:12}}>
         Select brands

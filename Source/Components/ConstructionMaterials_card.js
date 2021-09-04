@@ -35,7 +35,7 @@ export default ConstructionMaterials_card;
 const styles = StyleSheet.create({
   Box: {
     width: '100%',
-    height: 72,
+    height: 62,
  
     backgroundColor: Colors.blackBlue,
     flexDirection: 'row',
@@ -52,7 +52,7 @@ const styles = StyleSheet.create({
 marginVertical:10
   },
   Left_View: {
-    height: 72,
+    height: 62,
     width: '15%',
     alignItems: 'center',
     justifyContent: 'center',
@@ -61,11 +61,11 @@ marginVertical:10
     borderLeftWidth: 0.7,
     borderLeftColor: Colors.grey,
 
-    height: 72,
+    height: 62,
     width: '75%',
     flexDirection: 'row',
 justifyContent:'space-between',
-    padding: 12,
+    padding: 8,
   },
   Icon: {height: 40, width: 40},
   Iconview: {
