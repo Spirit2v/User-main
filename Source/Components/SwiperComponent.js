@@ -47,12 +47,12 @@ export default function SwiperComponent() {
             source={CFCover}
             style={{height:300,width:'100%'}}
           >
-               <View style={{marginTop: 158,paddingLeft:22}}>
+               <View style={{marginTop: 188,paddingLeft:22}}>
                   <Text style={{color: 'white', fontSize: 18}}>
                     Best deals!
                   </Text>
 
-                  <Text style={{color: 'white'}}>
+                  <Text style={{color: 'white',marginVertical:5}}>
                     Sign up now dont miss this year's biggest sale
                   </Text>
                   <Text style={{color: '#FFB600'}}>Check it now ></Text>
@@ -68,13 +68,13 @@ export default function SwiperComponent() {
             source={CFCover1}
             style={{height:300,width:'100%'}}
           >
-               <View style={{marginTop: 150,padding:12}}>
+               <View style={{marginTop: 180,paddingLeft:22}}>
                   <Text style={{color: 'white', fontSize: 18}}>
-                    Best deals!
+                   New year's Eve 10% off
                   </Text>
 
-                  <Text style={{color: 'white'}}>
-                    Sign up now dont miss this year's biggest sale
+                  <Text style={{color: 'white',marginVertical:5}}>
+                  Celebrate christmas with a 10% off to all materials when you place your order today
                   </Text>
                   <Text style={{color: '#FFB600'}}>Check it now ></Text>
                 </View> 
@@ -88,12 +88,12 @@ export default function SwiperComponent() {
             source={CFCover1}
             style={{height:300,width:'100%'}}
           >
-               <View style={{marginTop: 150,padding:12}}>
+               <View style={{marginTop: 188,paddingLeft:22}}>
                   <Text style={{color: 'white', fontSize: 18}}>
                     Best deals!
                   </Text>
 
-                  <Text style={{color: 'white'}}>
+                  <Text style={{color: 'white',marginVertical:5}}>
                     Sign up now dont miss this year's biggest sale
                   </Text>
                   <Text style={{color: '#FFB600'}}>Check it now ></Text>
