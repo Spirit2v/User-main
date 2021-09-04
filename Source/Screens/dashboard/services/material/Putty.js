@@ -80,17 +80,31 @@ export default function Putty({navigation}) {
     <ScrollView style={styles.container}>
       <View style={styles.containerContent}>
         <View style={{height: 20}}></View>
-  
+        <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox
           setFunction={setFunctio1}
           Types={Brands}
           placeholder="Select brands"
         />
+         <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox
           setFunction={setFunctio2}
           Types={Type}
           placeholder="Select Types"
         />
+         <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox
           // setFunction={setFunctio3}
           Types={Type}

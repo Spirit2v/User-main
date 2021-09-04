@@ -10,25 +10,29 @@ const Header_Component = ({Heading}) => {
   const navigation = useNavigation();
   return (
     <View style={styles.Container}>
-          <TouchableOpacity>
-          <View
-          style={{
-            height: 34,
-            width: 34,
-            borderWidth: 1,
-            borderColor: Colors.yellow,
-            borderRadius: 18,
         
-            borderStyle: 'dashed',
-          
-          }}></View>
-          </TouchableOpacity>
+       <Text
+       style={{color:'#FFB600',fontSize:18}}
+       >
+Home
+       </Text>
         
       <TouchableOpacity
         onPress={() => navigation.goBack()}>
    
       </TouchableOpacity>
       <Text style={styles.Header}>{Heading}</Text>
+    
+      <TouchableOpacity
+        // onPress={() => navigation.navigate('Cart')}
+          // style={{
+          //   flexDirection: 'row',
+          //   marginHorizontal: 20,
+          //   alignItems: 'center',
+          // }}
+          >
+    <Ionicons name="sunny-outline" size={24} color='#ffb600' />
+        </TouchableOpacity>
       <TouchableOpacity
         onPress={() => navigation.navigate('Cart')}
           style={{

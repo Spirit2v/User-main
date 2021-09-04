@@ -16,7 +16,7 @@ export default function SwiperComponent() {
      width:12
      ,height:4,
      backgroundColor:'white',
-     borderRadius:9,marginHorizontal:6,
+     borderRadius:9,marginHorizontal:3,
      top:62
               }}
             />
@@ -24,10 +24,10 @@ export default function SwiperComponent() {
           activeDot={
             <View
               style={{
-                width:26
+                width:30
                 ,height:4,
                 backgroundColor:'#FFB600',
-                borderRadius:9,marginHorizontal:6,
+                borderRadius:9,marginHorizontal:3,
                 top:62
               }}
             />

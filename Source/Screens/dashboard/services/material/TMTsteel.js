@@ -107,20 +107,41 @@ const [Quantity, setQuantity] = useState('')
 <ScrollView>
 
     <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 8, paddingHorizontal: 7}}>
-        <Text>{TMTsteel}{Quantity}</Text>{}
+      <View style={{ paddingHorizontal: 7}}>
+        {/* <Text>{TMTsteel}{Quantity}</Text>{} */}
+
+        <Text
+        style={{color:'grey',marginVertical:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox Types={Brand} 
          setFunction={setFunctio1}
         placeholder="Select brands" 
         />
+             <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select Grades
+
+        </Text>
         <DropdownCheckbox 
         setFunction={setFunctio}
         Types={Grades} placeholder="Select Grades" />
+ <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
 
+        </Text>
         <DropdownCheckbox 
          setFunction={setFunctio2}
         Types={Sizes} placeholder="Select Sizes" />
-         <DropdownCheckbox 
+       <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select Sizes
+
+        </Text>
+        
+           <DropdownCheckbox 
          setFunction={setFunctio2}
         Types={Sizes} placeholder="Trade" />
           {Visible ?

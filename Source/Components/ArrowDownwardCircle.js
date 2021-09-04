@@ -6,7 +6,7 @@ import TextStyles from '../Assets/Styles/TextStyles';
 
 const ArrowDownward = () => {
   return (
-    <View >
+    <View style={styles.Iconview}>
       <Ionicons
         name="chevron-down-outline"
         size={16}

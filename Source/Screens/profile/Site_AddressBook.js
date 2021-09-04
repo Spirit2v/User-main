@@ -9,6 +9,7 @@ import Button from '../../Components/Button';
 import {ScrollView} from 'react-native-gesture-handler';
 import axios from 'axios';
 import Ionicons from 'react-native-vector-icons/Ionicons';
+import SiteAddressComponent from '../../Components/SiteAddressComponent';
 const Site_AddressBook = ({navigation, percentage = 0}) => {
   const submitx = () => {
     setFormData({
@@ -34,7 +35,7 @@ const Site_AddressBook = ({navigation, percentage = 0}) => {
   return (
     <ScrollView>
       <View style={Styles.ProfileDetails_container}>
-        <View
+ <View
           style={{
             height: 65,
             justifyContent: 'center',
@@ -43,113 +44,19 @@ const Site_AddressBook = ({navigation, percentage = 0}) => {
             borderBottomWidth: 0.3,
             marginBottom: 23,
           }}>
-          <Text style={{color: 'white'}}>Personal Information</Text>
+          <Text 
+          style={{color: 'white'}}>
+          Site Address
+            </Text>
         </View>
-        <View style={{paddingHorizontal: 22}}>
-          <Text style={{color: 'grey'}}>Name</Text>
-
-          <ProfileInput
-            placeholder="Name"
-            onChangeText={text => setname(text)}
-          />
-          <Text style={{color: 'grey', marginVertical: 12}}>Email ID</Text>
-          <ProfileInput
-            placeholder="Email ID"
-            onChangeText={text => setEmail(text)}
-          />
-          <View style={{justifyContent: 'space-between', flexDirection: 'row'}}>
-            <View style={{width: '47%'}}>
-              <Text style={{color: 'grey', marginVertical: 12}}>
-                Phone Number
-              </Text>
-              <ProfileInput
-                placeholder="Phone No."
-                onChangeText={text => setPhone(text)}
-              />
-            </View>
-            <View style={{width: '48%'}}>
-              <Text style={{color: 'grey', marginVertical: 12}}>
-                Whatsapp Number
-              </Text>
-              <ProfileInput
-                onChangeText={text => setWhatsapp(text)}
-                placeholder="Whatsapp No."
-              />
-            </View>
-          </View>
+<View
+style={{paddingHorizontal:22}}
+>
+<SiteAddressComponent />
+<SiteAddressComponent />
+</View>
+    
         </View>
-        <View>
-          <View
-            style={{
-              height: 65,
-              justifyContent: 'center',
-              padding: 13,
-              borderBottomColor: 'grey',
-              borderBottomWidth: 0.3,
-              marginBottom: 23,
-            }}>
-            <Text style={{color: 'white'}}>Security setting</Text>
-          </View>
-
-          <View style={{paddingHorizontal: 22}}>
-            <View
-            style={{flexDirection:'row'}}
-            > 
-            <View
-            style={{width:'77%'}}
-            >
-              <ProfileInput
-              placeholder="Password"
-              onChangeText={text => setPassword(text)}
-            />
-            </View>
-            <View
-              style={{
-                flexDirection: 'row',
-                backgroundColor: '#FFB600',
-                height: 52,
-                width:62,
-
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius:4,
-                marginTop:8
-                ,marginLeft:9
-              }}>
-              <Ionicons name="pencil-outline" size={18} color="black" />
-              <Text style={{marginLeft: -11, color: 'black'}}>_</Text>
-            </View></View>
-           
-            <View
-              style={{
-                flexDirection: 'row',
-                marginTop: 50,
-                justifyContent: 'space-between',
-              
-                alignSelf: 'center',
-              }}>
-          <View
-              style={{
-                flexDirection: 'row',
-                backgroundColor: '#FFB600',
-                height: 52,
-                width:'100%',
-
-                justifyContent: 'center',
-                alignItems: 'center',
-                borderRadius:4,
-                marginTop:-26
-                ,marginLeft:9
-              }}>
-              <Ionicons name="pencil-outline" size={18} color="black" />
-              <Text style={{marginLeft: -11, color: 'black'}}>_</Text>
-              <Text style={{color: 'black'}}>   Edit detail</Text>
-            </View>
-              
-            </View>
-          </View>
-        </View>
-      </View>
     </ScrollView>
   );
 };

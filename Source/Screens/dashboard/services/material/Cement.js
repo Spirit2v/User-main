@@ -75,13 +75,22 @@ export default function Cement({navigation}) {
   return (
     <ScrollView>
       <View style={Styles.ProfileDetails_container}>
-        <View style={{marginTop: 8, paddingHorizontal: 7}}></View>
+        <View style={{ paddingHorizontal: 7,marginTop:0}}></View>
+        <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox
           Types={Brand}
           placeholder="Select brand"
           setFunction={setFunctio}
         />
+ <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select Grades
 
+        </Text>
         <DropdownCheckbox
           Types={Grades}
           placeholder="Select Grades"

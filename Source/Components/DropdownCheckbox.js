@@ -170,23 +170,23 @@ const styles = StyleSheet.create({
 
   firstbox: {
     borderRadius: 6,
-    padding: 16,
+    padding: 11,
     width: '100%',
-    height: 53,
+    height: 45,
     backgroundColor: Colors.blackBlue,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'stretch',
     shadowColor: 'white',
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.3,
-    shadowRadius: 4.65,
+    // shadowOffset: {
+    //   width: 0,
+    //   height: 4,
+    // },
+    // shadowOpacity: 0.3,
+    // shadowRadius: 4.65,
 
-    elevation: 8,
-    marginBottom: 20,
+    // elevation: 8,
+    
   },
   boxe: {
     width: '100%',

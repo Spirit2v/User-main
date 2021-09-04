@@ -62,7 +62,9 @@ const Agents = ({navigation}) => {
   return (
     <View style={Styles.ProfileDetails_container}>
       <View style={{marginBottom: 20}}></View>
-
+<View
+style={{paddingHorizontal:22}}
+>
       <RentingButton
         value="Labour"
         Callbackfunctio={Callbackfunction}
@@ -75,6 +77,7 @@ const Agents = ({navigation}) => {
         title={Materials}
         Types={Materials}
       />
+      </View>
       {Visible ? (
         <View>
           <View style={{flexDirection: 'row'}}>

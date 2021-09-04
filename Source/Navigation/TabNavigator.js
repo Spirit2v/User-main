@@ -119,11 +119,20 @@ const dashbardHeaderOptions = ({navigation}) => ({
     return (
       <View
         style={{flexDirection: 'row', marginRight: 20, alignItems: 'center'}}>
-    
+          <TouchableOpacity
+        // onPress={() => navigation.navigate('Cart')}
+          // style={{
+          //   flexDirection: 'row',
+          //   marginHorizontal: 20,
+          //   alignItems: 'center',
+          // }}
+          >
+    <Ionicons name="sunny-outline" size={28} color='#ffb600' />
+        </TouchableOpacity>
     
     <TouchableOpacity
     onPress={()=>navigation.navigate('Cart')}
-    style={{marginHorizontal:32}}
+    style={{marginHorizontal:22}}
     >
     <Ionicons name="cart-outline" size={24} color='#ffb600' />
     </TouchableOpacity>
@@ -151,6 +160,16 @@ const profileHeaderOptions = ({navigation}) => ({
       <View
       style={{flexDirection:'row'}}
       >
+              <TouchableOpacity
+        // onPress={() => navigation.navigate('Cart')}
+          style={{
+         
+            marginHorizontal: 20,
+            alignItems: 'center',
+          }}
+          >
+    <Ionicons name="sunny-outline" size={24} color='#ffb600' />
+        </TouchableOpacity>
       <TouchableOpacity
          onPress={()=>navigation.navigate('Cart')}>
       <Ionicons name="cart-outline" size={22} color='#ffb600' />
@@ -159,6 +178,7 @@ const profileHeaderOptions = ({navigation}) => ({
       <View
       style={{width:26}}
       ></View>
+      
       <TouchableOpacity
         style={{marginRight: 20}}
         onPress={() => navigation.navigate('NotificationTab')}>

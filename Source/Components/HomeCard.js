@@ -1,7 +1,9 @@
+import { NavigationContainer } from '@react-navigation/native'
 import React from 'react'
-import { View, Text } from 'react-native'
-
-export default function HomeCard() {
+import { View, Text, TouchableOpacity } from 'react-native'
+import {useNavigation} from '@react-navigation/native';
+export default function HomeCard({}) {
+  const navigation = useNavigation();
     return (<>
         <View style={{padding: 25,marginTop:-132}}>
         <View
@@ -45,7 +47,12 @@ export default function HomeCard() {
             <Text style={{color: 'white', marginBottom: 12, marginTop: 6}}>
               Construction Materials
             </Text>
+            <TouchableOpacity
+            
+            onPress={()=>navigation.navigate('Dashboard')}
+            >
             <Text style={{color: '#FFB600'}}>Browse ></Text>
+            </TouchableOpacity>
           </View>
 
           <View
@@ -90,7 +97,12 @@ export default function HomeCard() {
                 style={{color: 'white', marginBottom: 20, marginTop: 6}}>
              Agent
               </Text>
-              <Text style={{color: '#FFB600'}}>Browse ></Text>
+              <TouchableOpacity
+            
+            onPress={()=>navigation.navigate('Dashboard')}
+            >
+            <Text style={{color: '#FFB600'}}>Browse ></Text>
+            </TouchableOpacity>
             </View>
           </View>
         </View>
@@ -195,7 +207,12 @@ justifyContent:'center'
         style={{color: 'white', marginBottom: 9, marginTop: 0}}>
      Chemical
       </Text>
-      <Text style={{color: '#FFB600'}}>Browse ></Text>
+      <TouchableOpacity
+            
+            onPress={()=>navigation.navigate('Dashboard')}
+            >
+            <Text style={{color: '#FFB600'}}>Browse ></Text>
+            </TouchableOpacity>
     </View>
   </View>
 </View>

@@ -56,15 +56,11 @@ const Profile = ({navigation}) => {
             </Text>
           )}
         />
-        <View
-        style={{flexDirection:'row',marginVertical:22}}
-        >
+        <View style={{flexDirection: 'row', marginVertical: 22}}>
           <Text style={{color: 'white', fontSize: 18}}>Customer name</Text>
-         
-         <View
-        style={{marginTop:3,marginLeft:6}}
-        >
-          <Ionicons name="checkmark-circle" size={22} color="grey" />
+
+          <View style={{marginTop: 3, marginLeft: 6}}>
+            <Ionicons name="checkmark-circle" size={22} color="grey" />
           </View>
         </View>
         <Buttonq1 title="Customer" hi={30} wi={94} />
@@ -98,7 +94,7 @@ const Profile = ({navigation}) => {
         </View>
 
         <View style={{paddingHorizontal: 22, flexDirection: 'row'}}>
-          <View
+          <TouchableOpacity
             style={{
               height: 47,
               width: '41%',
@@ -108,12 +104,16 @@ const Profile = ({navigation}) => {
               alignItems: 'center',
               borderRadius: 4,
               flexDirection: 'row',
+            }}
+            onPress={() => {
+              navigation.navigate('Help');
             }}>
             <Ionicons name="help-circle-outline" size={18} color="white" />
 
             <Text style={{color: 'white', marginLeft: 7}}>Help</Text>
-          </View>
-          <View
+          </TouchableOpacity>
+
+          <TouchableOpacity
             style={{
               height: 47,
               height: 47,
@@ -124,10 +124,13 @@ const Profile = ({navigation}) => {
               alignItems: 'center',
               borderRadius: 4,
               flexDirection: 'row',
+            }}
+            onPress={() => {
+              navigation.navigate('Feedback');
             }}>
             <Ionicons name="chatbox-outline" size={18} color="white" />
             <Text style={{color: 'white', marginLeft: 7}}>Feedback</Text>
-          </View>
+          </TouchableOpacity>
           <View></View>
         </View>
 

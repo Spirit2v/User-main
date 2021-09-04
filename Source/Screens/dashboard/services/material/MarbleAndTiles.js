@@ -102,21 +102,36 @@ const [data, setData] = useState('')
   ];
   return (
     <View style={Styles.ProfileDetails_container}>
-      <View style={{marginTop: 8, paddingHorizontal: 7}}>
+      <View style={{ paddingHorizontal: 7,}}>
+      <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select brands
+
+        </Text>
         <DropdownCheckbox
           Types={Brand}
           setFunction={setFunctio}
-          placeholder="Select brands"
+          placeholder="brands"
         />
+         <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select Types
+
+        </Text>
         <DropdownCheckbox
           setFunction={setFunctio1}
           Types={Types}
-          placeholder="Select Types"
+          placeholder="Types"
         />
+          <Text
+        style={{color:'grey',marginTop:22,marginBottom:12}}>
+        Select Sizes
+
+        </Text>
         <DropdownCheckbox
           setFunction={setFunctio2}
           Types={Sizes}
-          placeholder="Select Sizes"
+          placeholder="Sizes"
         />
 
 

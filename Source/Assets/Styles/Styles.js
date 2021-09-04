@@ -208,6 +208,8 @@ padding:-90
   ProfileDetails_container: {
     backgroundColor: Colors.darkgrey,
     flex: 1,
+    paddingHorizontal:22,
+
  
     minHeight: HEIGHT
   },
